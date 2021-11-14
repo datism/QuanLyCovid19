@@ -58,7 +58,45 @@ CREATE TABLE Sotamtru
 )
 GO
 
+CREATE TABLE NhanKhau
+(
+    Manhankhau          INT           NOT NULL,
+    Hovaten             NVARCHAR(50)  NOT NULL,
+    CCCD                VARCHAR(15)   NOT NULL,
+    Ngaysinh            DATE          NULL,
+    Noisinh             NVARCHAR(50)  NOT NULL,
+    Dantoc              NVARCHAR(30)  NULL,
+    Tongiao             NVARCHAR(30)  NULL,
+    Gioitinh            BIT           NOT NULL,
+    Trinhdovanhoa       NVARCHAR(30)  NULL,
+    Nghenghiep          NVARCHAR(50)  NULL,
+    Noilamviec          NVARCHAR(50)  NULL,
+    Ngaydangkithuongtru DATE          NULL,
+    Quanhevoichuho      NVARCHAR(20)  NULL,
+    Mahokhau            INT           NOT NULL,
+    Ghichu              NVARCHAR(MAX) NULL
+)--Thong tin nhan khau
+GO
 
+CREATE TABLE Giaytamvang
+(
+    Magiaytamvang NVARCHAR(20) NOT NULL,
+    Manhankhau    INT          NOT NULL,
+    Ngaytamvang   DATE         NOT NULL,
+    Noidi         NVARCHAR(50) NULL
+)
+GO
+
+CREATE TABLE Sotamtru
+(
+    Matamtru        INT          NOT NULL,
+    Mahokhau        INT          NOT NULL,
+    Diachithuongtru NVARCHAR(50) NOT NULL,
+    Manhankhau      INT          NOT NULL,
+    Ngaytamtru      DATE         NOT NULL,
+    Thoihan         DATE         NULL,
+)
+GO
 
 CREATE TABLE PhieuChuyenDi
 (
