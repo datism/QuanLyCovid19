@@ -58,8 +58,6 @@ CREATE TABLE Sotamtru
 )
 GO
 
-
-
 CREATE TABLE PhieuChuyenDi
 (
     Maphieuchuyendi INT           NOT NULL,
