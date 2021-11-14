@@ -9,13 +9,15 @@ public class CachLy {
     String hoVaTen;
     String maNhanKhau;
     int mucDo;
+    boolean tinhTrang;
     Date tdCachLy;
     String kvCachLy;
 
-    public CachLy(String hoVaTen, String maNhanKhau, int mucDo, Date tdCachLy, String kvCachLy) {
+    public CachLy(String hoVaTen, String maNhanKhau, int mucDo, boolean tinhTrang, Date tdCachLy, String kvCachLy) {
         this.hoVaTen = hoVaTen;
         this.maNhanKhau = maNhanKhau;
         this.mucDo = mucDo;
+        this.tinhTrang = tinhTrang;
         this.tdCachLy = tdCachLy;
         this.kvCachLy = kvCachLy;
     }
@@ -42,6 +44,14 @@ public class CachLy {
 
     public void setMucDo(int mucDo) {
         this.mucDo = mucDo;
+    }
+
+    public boolean isTinhTrang() {
+        return tinhTrang;
+    }
+
+    public void setTinhTrang(boolean tinhTrang) {
+        this.tinhTrang = tinhTrang;
     }
 
     public Date getTdCachLy() {

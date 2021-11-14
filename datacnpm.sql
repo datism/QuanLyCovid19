@@ -142,7 +142,7 @@ CREATE TABLE Nguoicachly
     Manhankhau        INT           NOT NULL,
     Mucdocachly_F     INT           NULL,
     Thoidiemcachly    DATE          NOT NULL,
-    Mabenhnhantiepxuc INT           NULL,
+    Tinhtrang         BIT           NOT NULL,
     Khuvuccachly      NVARCHAR(100) NULL
 )
 GO
