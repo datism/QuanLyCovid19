@@ -1,3 +1,4 @@
+/** Mạnh Thắng **/
 package nhom13.covid.Controller;
 
 import javafx.event.ActionEvent;
@@ -38,18 +39,16 @@ public class KhaiBaoYTeController {
     @FXML
     private CheckBox dauHong;
 
+    //Kiểm tra điều kiện khai báo y tế
     private boolean check() {
         int c=0;
         if(hoVaTen.getText()==null || hoVaTen.getText()==""){
-            hoVaTen.getStyleClass().add("error");
             c=c+1;
         }
         if(maNhanKhau.getText()==null || maNhanKhau.getText()==""){
-            maNhanKhau.getStyleClass().add("error");
             c=c+1;
         }
         if(soDt.getText()==null || soDt.getText()==""){
-            soDt.getStyleClass().add("error");
             c=c+1;
         }
         if(c != 0) {
@@ -63,21 +62,7 @@ public class KhaiBaoYTeController {
         return true;
     }
 
-    public void ten(javafx.scene.input.MouseEvent mouseEvent) {
-        Error.setText(null);
-        hoVaTen.getStyleClass().remove("error");
-    }
-
-    public void ma(javafx.scene.input.MouseEvent mouseEvent) {
-        Error.setText(null);
-        maNhanKhau.getStyleClass().remove("error");
-    }
-
-    public void sdt(javafx.scene.input.MouseEvent mouseEvent) {
-        Error.setText(null);
-        soDt.getStyleClass().remove("error");
-    }
-
+    //thêm khai báp y tế
     public void khaiBao(ActionEvent actionEvent) {
         try {
             Error.setText(null);

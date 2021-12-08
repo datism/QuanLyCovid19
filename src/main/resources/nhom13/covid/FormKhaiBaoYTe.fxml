@@ -1,3 +1,4 @@
+<!--Mạnh Thắng-->
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
@@ -60,10 +61,10 @@
       <CheckBox fx:id="ho" layoutX="208.0" layoutY="282.0" mnemonicParsing="false" text="Ho" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
       <CheckBox fx:id="khoTho" layoutX="274.0" layoutY="282.0" mnemonicParsing="false" text="Khó thở" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
       <CheckBox fx:id="dauHong" layoutX="361.0" layoutY="282.0" mnemonicParsing="false" text="Đau họng" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
-      <TextField fx:id="hoVaTen" layoutX="157.0" layoutY="69.0" onMouseClicked="#ten" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="maNhanKhau" layoutX="398.0" layoutY="111.0" onMouseClicked="#ma" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="35.0" />
+      <TextField fx:id="hoVaTen" layoutX="157.0" layoutY="69.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+      <TextField fx:id="maNhanKhau" layoutX="398.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="35.0" />
       <TextField fx:id="cccd" layoutX="208.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.leftAnchor="200.0" />
-      <TextField fx:id="soDt" layoutX="305.0" layoutY="152.0" onMouseClicked="#sdt" prefHeight="25.0" prefWidth="318.0" AnchorPane.rightAnchor="35.0" />
+      <TextField fx:id="soDt" layoutX="305.0" layoutY="152.0" prefHeight="25.0" prefWidth="318.0" AnchorPane.rightAnchor="35.0" />
       <TextField fx:id="Email" layoutX="112.0" layoutY="188.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
       <TextField fx:id="noiDiChuyen" layoutX="160.0" layoutY="232.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
       <TextField fx:id="tienSu" layoutX="157.0" layoutY="358.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />

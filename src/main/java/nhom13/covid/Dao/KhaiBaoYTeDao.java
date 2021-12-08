@@ -1,3 +1,4 @@
+/** Mạnh Thắng **/
 package nhom13.covid.Dao;
 
 import nhom13.covid.Model.KhaiBaoYTe;
@@ -17,7 +18,7 @@ public class KhaiBaoYTeDao implements Dao<KhaiBaoYTe>{
     public void update(KhaiBaoYTe khaiBaoYTe) {
         try {
             Connection connection = connect.getConnection();
-            //query
+            //query thêm thông tin vào bảng khai báo y tế
             String sql = "insert into Thongtinkhaibaoyte(Hovaten, CCCD, Manhankhau, Sodienthoai, Email, Noidichuyen, Trieuchung, Thoidiemkhaibao, Tiensumacbanh) values(?,?,?,?,?,?,?,?, ?)";
             PreparedStatement statement = connection.prepareCall(sql);
             statement.setString(1, khaiBaoYTe.getHoVaTen());
@@ -42,8 +43,7 @@ public class KhaiBaoYTeDao implements Dao<KhaiBaoYTe>{
     public boolean check_Manhankhau(int ma) {
         try {
             Connection connection = connect.getConnection();
-            //kiểm tra xem mã nhân khẩu có tồn tại không
-            //query
+            //query kiểm tra xem mã nhân khẩu có tồn tại không
             String sql = "select Manhankhau from NhanKhau where Manhankhau=" + String.valueOf(ma);
             Statement statement = connection.createStatement();
 
