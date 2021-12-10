@@ -1,7 +1,5 @@
 package nhom13.covid.View.TestCovid;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import nhom13.covid.Dao.TestCovidDao;
@@ -23,7 +20,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Stream;
 
 /**
- * @author dd
+ * @author trdat
  */
 public class XemTestCovid implements Initializable {
     private TestCovidDao testCovidDao;
@@ -111,8 +108,8 @@ public class XemTestCovid implements Initializable {
         //Lọc theo kết quả xét nghiệm
         if (ketQuaChoiceBox.getValue() != null)
             switch (ketQuaChoiceBox.getValue()) {
-                case "Dương Tính" -> stream = stream.filter(TestCovid::isKetQua);
-                case "Âm Tính" -> stream = stream.filter(testCovid -> !testCovid.isKetQua());
+                case "Dương Tính" -> stream = stream.filter(TestCovid::getKetQua);
+                case "Âm Tính" -> stream = stream.filter(testCovid -> !testCovid.getKetQua());
             }
 
         //reset lại các thành phần giao diện

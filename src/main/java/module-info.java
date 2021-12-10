@@ -1,10 +1,10 @@
-module nhom13.covid {
+open module nhom13.covid {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
     requires mssql.jdbc;
+    requires org.controlsfx.controls;
 
-
-    opens nhom13.covid to javafx.fxml;
     exports nhom13.covid;
+    exports nhom13.covid.View;
 }

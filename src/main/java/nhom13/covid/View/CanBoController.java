@@ -1,4 +1,4 @@
-package nhom13.covid.Controller;
+package nhom13.covid.View;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,14 +15,29 @@ public class CanBoController implements Initializable {
     private AnchorPane anchorPane;
 
     @FXML
-    void thongKeTestCovid(ActionEvent event) {
+    void themTestCovid(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/themTestCovid.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void thongKeTestCovid(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/ThongKeTestCovid.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void xemTestCovid(ActionEvent event) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("XemTestCovidView.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/XemTestCovid.fxml"));
             anchorPane.getChildren().setAll(pane);
         } catch (IOException e) {
             e.printStackTrace();

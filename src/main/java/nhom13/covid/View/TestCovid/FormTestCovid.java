@@ -81,7 +81,7 @@ public class FormTestCovid extends GridPane implements Initializable{
         setSoDienThoai(testCovid.getSoDt());
         setSoLanTest(testCovid.getSoLanTest());
         setHinhThucTest(testCovid.getHinhThucTest());
-        setKetQua(testCovid.isKetQua());
+        setKetQua(testCovid.getKetQua());
         setNgayTest(testCovid.getNgayTest());
 
         maNhanKhauTextField.setEditable(false);

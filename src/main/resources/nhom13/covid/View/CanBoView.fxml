@@ -12,16 +12,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.CanBoController">
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.CanBoController">
    <children>
-      <VBox prefHeight="761.0" prefWidth="217.0" spacing="10.0" style="-fx-background-color: #818fa6;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
          <children>
             <ImageView fitHeight="160.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" />
             <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Tổng quan">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@View/images/icons8-home-page-32.png" />
+                        <Image url="@images/icons8-home-page-32.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -34,12 +35,12 @@
             </Button>
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thêm thông tin">
               <items>
-                <MenuItem mnemonicParsing="false" text="Test covid" />
+                <MenuItem mnemonicParsing="false" onAction="#themTestCovid" text="Test covid" />
               </items>
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@View/images/icons8-home-page-32.png" />
+                        <Image url="@images/icons8-home-page-32.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -60,7 +61,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@View/images/icons8-home-page-32.png" />
+                        <Image url="@images/icons8-home-page-32.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -81,7 +82,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@View/images/icons8-home-page-32.png" />
+                        <Image url="@images/icons8-home-page-32.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -96,7 +97,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@View/images/icons8-home-page-32.png" />
+                        <Image url="@images/icons8-home-page-32.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -109,7 +110,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="anchorPane" layoutX="236.0" layoutY="-4.0" prefHeight="767.0" prefWidth="1032.0">
+      <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="893.0" spacing="100.0">
                <children>
@@ -141,4 +142,4 @@
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</HBox>

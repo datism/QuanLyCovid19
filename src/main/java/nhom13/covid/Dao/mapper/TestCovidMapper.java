@@ -5,6 +5,9 @@ import nhom13.covid.Model.TestCovid;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author trdat
+ */
 public class TestCovidMapper implements RowMapper<TestCovid> {
     @Override
     public TestCovid mapRow(ResultSet resultSet) {
