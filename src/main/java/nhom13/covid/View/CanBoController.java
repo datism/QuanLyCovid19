@@ -17,7 +17,7 @@ public class CanBoController implements Initializable {
     @FXML
     void themTestCovid(ActionEvent event) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/themTestCovid.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/ThemTestCovid.fxml"));
             anchorPane.getChildren().setAll(pane);
         } catch (IOException e) {
             e.printStackTrace();
