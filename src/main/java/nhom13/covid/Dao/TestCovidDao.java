@@ -1,22 +1,32 @@
-package nhom13.covid.Dao;
+package nhom13.covid.Dao.impl;
 
+import nhom13.covid.Dao.mapper.TestCovidMapper;
 import nhom13.covid.Model.TestCovid;
 
 import java.util.List;
 
-public class TestCovidDao implements Dao<TestCovid> {
-    @Override
+public class TestCovidDao extends AbstractDao<TestCovid> {
+
     public List<TestCovid> getAll() {
-        return null;
+        String query = "Select * FORM Thongtintestcovid";
+        return super.query(query, new TestCovidMapper());
     }
 
-    @Override
     public void update(TestCovid testCovid) {
-
+        String query = "UPDATE Thongtintestcovid SET Hovaten = ?, CCCD = ?, Sodienthoai = ?, Solantest = ?," +
+                "Hinhthuctest = ?, Ketqua = ?, Mucdonhiem_F = ?, Candicachly = ? WHERE Manhankhau = ?";
+        super.update(query, testCovid.getHoVaTen(), testCovid.getCccd(), testCovid.getSoDt(), testCovid.getSoLanTest(),
+                testCovid.getHinhThucTest(), testCovid.isKetQua(), testCovid.getMucDo(), testCovid.isCachLy(), testCovid.getMaNhanKhau());
     }
 
-    @Override
-    public void delete(TestCovid testCovid) {
-
+    public void delete(int maNhanKhau) {
+        String query = "DELETE FROM Thongtintestcovid WHERE Manhankhau = ?";
+        super.update(query, maNhanKhau);
     }
+
+    public Integer countAll() {
+        String query = "Select * FORM Thongtintestcovid";
+        return super.count(query);
+    }
+
 }
