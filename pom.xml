@@ -74,9 +74,13 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>nhom13.covid/nhom13.covid.Main</mainClass>
-                            <option>
-                                --add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls
-                            </option>
+                            <options>
+                                <option>--add-exports</option>
+                                <option>javafx.base/com.sun.javafx.event=org.controlsfx.controls</option>
+
+                                <option>--add-opens</option>
+                                <option>javafx.graphics/javafx.scene=org.controlsfx.controls</option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>

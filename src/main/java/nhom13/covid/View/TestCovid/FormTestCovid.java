@@ -4,22 +4,22 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import nhom13.covid.Model.TestCovid;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
+
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Date;
-import java.util.ResourceBundle;
 
 /**
  * @author trdat
- * @// TODO: 12/10/2021 control input 
  */
-public class FormTestCovid extends GridPane implements Initializable{
+public class FormTestCovid extends GridPane {
     @FXML
     private TextField hoVaTenTextField;
 
@@ -44,12 +44,9 @@ public class FormTestCovid extends GridPane implements Initializable{
     @FXML
     private DatePicker ngayTestDatePicker;
 
-    private final String[] ketQuaArr = {"Duơng tính", "Âm tính"};
+    private final ValidationSupport validationSupport = new ValidationSupport();
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ketQuaChoiceBox.getItems().setAll(ketQuaArr);
-    }
+    private final String[] ketQuaArr = {"Duơng tính", "Âm tính"};
 
     public void clear() {
         hoVaTenTextField.clear();
@@ -71,6 +68,16 @@ public class FormTestCovid extends GridPane implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        ketQuaChoiceBox.getItems().setAll(ketQuaArr);
+        validationSupport.registerValidator(hoVaTenTextField, Validator.createEmptyValidator("Không được bỏ trống"));
+        validationSupport.registerValidator(canCuocCongDanTextField, Validator.createRegexValidator("Căn cước công dân chứa 12 chữ số", "\\d{12}", Severity.ERROR));
+        validationSupport.registerValidator(maNhanKhauTextField, Validator.createRegexValidator("Mã nhân khẩu phải là số nguyên", "\\d+", Severity.ERROR));
+        validationSupport.registerValidator(soDienThoaiTextField, Validator.createRegexValidator("Số điện thoại chứa phải có 11 chữ số", "\\d{11}", Severity.ERROR));
+        validationSupport.registerValidator(soLanTestTextField, Validator.createRegexValidator("Số lần test phải là số nguyên", "\\d+", Severity.ERROR));
+        validationSupport.registerValidator(hinhThucTestTextField, Validator.createEmptyValidator("Không được bỏ trống"));
+        validationSupport.registerValidator(ketQuaChoiceBox, Validator.createEmptyValidator("Phải chọn kết quả"));
+        validationSupport.registerValidator(ngayTestDatePicker, Validator.createEmptyValidator("Phải chọn ngày"));
     }
 
     public FormTestCovid(TestCovid testCovid) {
