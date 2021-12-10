@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 /**
  * @author dd
  */
-public class XemTestCovidController implements Initializable {
+public class XemTestCovid implements Initializable {
     private TestCovidDao testCovidDao;
 
     @FXML
