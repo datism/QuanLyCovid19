@@ -116,9 +116,9 @@ CREATE TABLE Thongtinkhaibaoyte
     Manhankhau      INT           NOT NULL,
     Sodienthoai     VARCHAR(11)   NOT NULL,
     Email           VARCHAR(20)   NULL,
-    Noidichuyen     NVARCHAR(MAX) NOT NULL,
+    Noidichuyen     NVARCHAR(MAX) NULL,
     Trieuchung      NVARCHAR(MAX) NULL,
-    Thoidiemkhaibao DATE          NULL,
+    Thoidiemkhaibao DATE          NOT NULL,
     Tiensumacbanh   NVARCHAR(MAX) NULL
 )
 GO

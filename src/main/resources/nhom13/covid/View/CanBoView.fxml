@@ -54,7 +54,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#xemCovidQuocGiaClicked" text="Covid quốc gia" />
                   <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
-                  <MenuItem mnemonicParsing="false" text="Khai báo y tế" />
+                  <MenuItem mnemonicParsing="false" onAction="#xemKhaiBaoYTe" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#xemTestCovid" text="Test covid" />
                </items>
                <graphic>
@@ -75,7 +75,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#thongKeCovidQuocGiaCLicked" text="Covid quốc gia" />
                   <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
-                  <MenuItem mnemonicParsing="false" text="Khai báo y tế" />
+                  <MenuItem mnemonicParsing="false" onAction="#thongKeKhaiBaoYTe" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#thongKeTestCovid" text="Test covid" />
                </items>
                <graphic>
