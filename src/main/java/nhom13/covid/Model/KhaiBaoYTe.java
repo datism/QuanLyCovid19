@@ -3,12 +3,12 @@ package nhom13.covid.Model;
 import java.util.Date;
 
 /**
- * @author  ddat
+ * @author  trdat
  */
 public class KhaiBaoYTe {
     String hoVaTen;
     String cccd;
-    int maNhanKhau;
+    Integer maNhanKhau;
     String soDt;
     String Email;
     String noiDiChuyen;
@@ -16,7 +16,7 @@ public class KhaiBaoYTe {
     Date tdKhaiBao;
     String tienSu;
 
-    public KhaiBaoYTe(String hoVaTen, String cccd, int maNhanKhau, String soDt, String email, String noiDiChuyen, String trieuChung, Date tdKhaiBao, String tienSu) {
+    public KhaiBaoYTe(String hoVaTen, String cccd, Integer maNhanKhau, String soDt, String email, String noiDiChuyen, String trieuChung, Date tdKhaiBao, String tienSu) {
         this.hoVaTen = hoVaTen;
         this.cccd = cccd;
         this.maNhanKhau = maNhanKhau;
@@ -27,6 +27,8 @@ public class KhaiBaoYTe {
         this.tdKhaiBao = tdKhaiBao;
         this.tienSu = tienSu;
     }
+
+    public KhaiBaoYTe() {}
 
     public String getHoVaTen() {
         return hoVaTen;
@@ -44,11 +46,11 @@ public class KhaiBaoYTe {
         this.cccd = cccd;
     }
 
-    public int getMaNhanKhau() {
+    public Integer getMaNhanKhau() {
         return maNhanKhau;
     }
 
-    public void setMaNhanKhau(int maNhanKhau) {
+    public void setMaNhanKhau(Integer maNhanKhau) {
         this.maNhanKhau = maNhanKhau;
     }
 

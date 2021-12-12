@@ -3,7 +3,7 @@ package nhom13.covid.Model;
 import java.sql.Date;
 
 /**
- * @author ddat
+ * @author trdat
  */
 public class CachLy {
     String hoVaTen;

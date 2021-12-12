@@ -1,5 +1,5 @@
 /** Mạnh Thắng **/
-package nhom13.covid.Controller;
+package nhom13.covid.View.KhaiBaoYTe;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import nhom13.covid.Dao.KhaiBaoYTeDao;
 import nhom13.covid.Model.KhaiBaoYTe;
 import java.sql.Date;
 
-public class KhaiBaoYTeController {
+public class KhaiBaoYTeForm {
     @FXML
     private TextField hoVaTen;
     @FXML
@@ -39,6 +39,8 @@ public class KhaiBaoYTeController {
     @FXML
     private CheckBox dauHong;
 
+    KhaiBaoYTeDao khaiBaoYTeDao = new KhaiBaoYTeDao();
+
     //Kiểm tra điều kiện khai báo y tế
     private boolean check() {
         int c=0;
@@ -56,9 +58,6 @@ public class KhaiBaoYTeController {
             return false;
         }
         KhaiBaoYTeDao kb = new KhaiBaoYTeDao();
-        if(kb.check_Manhankhau(Integer.parseInt(maNhanKhau.getText()))==false) {
-            Error.setText("Nhập sai mã nhân khẩu");
-        }
         return true;
     }
 
@@ -75,8 +74,7 @@ public class KhaiBaoYTeController {
             if(khoTho.isSelected()) TrieuChung += "khó thở;";
             if(dauHong.isSelected()) TrieuChung += "đau họng;";
             TrieuChung += trieuChung.getText();
-            KhaiBaoYTeDao kb = new KhaiBaoYTeDao();
-            kb.update(new KhaiBaoYTe(
+            khaiBaoYTeDao.insert(new KhaiBaoYTe(
                     hoVaTen.getText(), cccd.getText(),
                     Integer.parseInt(maNhanKhau.getText()), soDt.getText(),
                     Email.getText(), noiDiChuyen.getText(),
