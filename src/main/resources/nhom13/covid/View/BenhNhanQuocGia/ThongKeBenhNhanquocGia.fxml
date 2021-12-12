@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="709.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.BenhNhanQuocGia.ThongKeBenhNhanquocGia">
+   <children>
+      <BarChart fx:id="tuoiBarChart" layoutX="55.0" layoutY="73.0" title="Số ca nhiễm covid 19 theo độ tuổi.">
+        <xAxis>
+          <CategoryAxis label="Độ tuổi" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Số ca mắc" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <BarChart fx:id="ngayBarChar" layoutX="696.0" layoutY="84.0" title="Số ca nhiễm covid 19 theo ngày.">
+        <xAxis>
+          <CategoryAxis label="Ngày" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Số ca mắc" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

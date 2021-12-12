@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.BenhNhanQuocGia.XemBenhNhanQuocGia">
+   <children>
+      <HBox layoutX="357.0" layoutY="59.0" prefHeight="31.0" prefWidth="292.0">
+         <children>
+            <TextField fx:id="searchText" prefHeight="31.0" prefWidth="223.0" promptText="Tìm kiếm bệnh nhân" />
+            <Button mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="96.0" text="Tìm kiếm" />
+         </children>
+      </HBox>
+      <Button layoutX="991.0" layoutY="137.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="77.0" text="Tải lại" />
+      <TableView fx:id="table" layoutX="1.0" layoutY="168.0" prefHeight="493.0" prefWidth="1068.0">
+        <columns>
+          <TableColumn fx:id="hoVaTenColumn" prefWidth="119.0" text="Họ và tên" />
+          <TableColumn fx:id="cccdColumn" prefWidth="154.0" text="Căn cước công dân" />
+            <TableColumn fx:id="tuoiColumn" prefWidth="107.0" text="Tuổi" />
+            <TableColumn fx:id="gioiTinhColumn" prefWidth="106.0" text="Giới tính" />
+            <TableColumn fx:id="noiNhiemColumn" prefWidth="225.0" text="Nơi nhiễm" />
+            <TableColumn fx:id="tdNhiemColumn" prefWidth="193.0" text="Thời điểm nhiễm" />
+            <TableColumn fx:id="maBenhNhanColumn" prefWidth="162.0" text="Ma Benh Nhan" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

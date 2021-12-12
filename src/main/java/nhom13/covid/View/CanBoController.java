@@ -44,6 +44,26 @@ public class CanBoController implements Initializable {
         }
     }
 
+    @FXML
+    void thongKeCovidQuocGiaCLicked(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("BenhNhanQuocGia/ThongKeBenhNhanquocGia.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void xemCovidQuocGiaClicked(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("BenhNhanQuocGia/XemBenhNhanQuocGia.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }

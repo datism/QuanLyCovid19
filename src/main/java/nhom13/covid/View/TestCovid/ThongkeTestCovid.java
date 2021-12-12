@@ -30,8 +30,8 @@ public class ThongkeTestCovid implements Initializable {
         List<TestCovid> duongTinhList = new ArrayList<>(testCovidDao.getByKetqua(true));
 
         Map<YearMonth, Integer> noDtMonth = new TreeMap<>();
-        for (TestCovid testcovd: duongTinhList) {
-            YearMonth key = YearMonth.from(testcovd.getNgayTest().toLocalDate());
+        for (TestCovid testCovid: duongTinhList) {
+            YearMonth key = YearMonth.from(testCovid.getNgayTest().toLocalDate());
             if(noDtMonth.get(key) != null)
                 noDtMonth.put(key, noDtMonth.get(key) + 1);
             else

@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.CanBoController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
@@ -53,7 +52,7 @@
             </MenuButton>
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Xem/Tra cứu">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Covid quốc gia" />
+                  <MenuItem mnemonicParsing="false" onAction="#xemCovidQuocGiaClicked" text="Covid quốc gia" />
                   <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
                   <MenuItem mnemonicParsing="false" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#xemTestCovid" text="Test covid" />
@@ -74,7 +73,7 @@
             </MenuButton>
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="268.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thống kê">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Covid quốc gia" />
+                  <MenuItem mnemonicParsing="false" onAction="#thongKeCovidQuocGiaCLicked" text="Covid quốc gia" />
                   <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
                   <MenuItem mnemonicParsing="false" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#thongKeTestCovid" text="Test covid" />

@@ -104,6 +104,7 @@ CREATE TABLE Benhnhancovidquocgia
     Tuoi            INT          NOT NULL,
     Gioitinh        BIT          NULL,
     Thoidiemnhiem   DATE         NOT NULL,
+    Noinhiem        NVARCHAR(100) NULL,
     Mabenhnhannhiem INT          NOT NULL
 )
 GO

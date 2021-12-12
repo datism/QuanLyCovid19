@@ -181,10 +181,10 @@ public class XemTestCovid implements Initializable {
         testCovidList = FXCollections.observableArrayList(testCovidDao.getAll());
         testCovidTable.setItems(testCovidList);
 
-        hoVaTenCol.setCellValueFactory(new PropertyValueFactory("hoVaTen"));
-        canCuocCongDanCol.setCellValueFactory(new PropertyValueFactory("cccd"));
-        maNhanKhauCol.setCellValueFactory(new PropertyValueFactory("maNhanKhau"));
-        soDienThoaiCol.setCellValueFactory(new PropertyValueFactory("soDt"));
+        hoVaTenCol.setCellValueFactory(new PropertyValueFactory<>("hoVaTen"));
+        canCuocCongDanCol.setCellValueFactory(new PropertyValueFactory<>("cccd"));
+        maNhanKhauCol.setCellValueFactory(new PropertyValueFactory<>("maNhanKhau"));
+        soDienThoaiCol.setCellValueFactory(new PropertyValueFactory<>("soDt"));
 
         chiTietVbox.setVisible(false);
 

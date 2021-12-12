@@ -1,25 +1,28 @@
 package nhom13.covid.Model;
 
-import java.sql.Date;
+import java.util.Date;
 
-/**
- * @author trdat
- */
 public class BenhNhanQuocGia {
+
     String hoVaTen;
     String cccd;
-    int tuoi;
+    Integer tuoi;
+    Boolean gioiTinh;
     String noiNhiem;
     Date tdNhiem;
-    int maBenhNhan;
+    Integer maBenhNhan;
 
-    public BenhNhanQuocGia(String hoVaTen, String cccd, int tuoi, String noiNhiem, Date tdNhiem, int maBenhNhan) {
+    public BenhNhanQuocGia(String hoVaTen, String cccd, Integer tuoi, Boolean gioiTinh, String noiNhiem, Date tdNhiem, Integer maBenhNhan) {
         this.hoVaTen = hoVaTen;
         this.cccd = cccd;
         this.tuoi = tuoi;
+        this.gioiTinh = gioiTinh;
         this.noiNhiem = noiNhiem;
         this.tdNhiem = tdNhiem;
         this.maBenhNhan = maBenhNhan;
+    }
+
+    public BenhNhanQuocGia() {
     }
 
     public String getHoVaTen() {
@@ -38,12 +41,20 @@ public class BenhNhanQuocGia {
         this.cccd = cccd;
     }
 
-    public int getTuoi() {
+    public Integer getTuoi() {
         return tuoi;
     }
 
-    public void setTuoi(int tuoi) {
+    public void setTuoi(Integer tuoi) {
         this.tuoi = tuoi;
+    }
+
+    public Boolean getGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(Boolean gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
     public String getNoiNhiem() {
@@ -62,11 +73,11 @@ public class BenhNhanQuocGia {
         this.tdNhiem = tdNhiem;
     }
 
-    public int getMaBenhNhan() {
+    public Integer getMaBenhNhan() {
         return maBenhNhan;
     }
 
-    public void setMaBenhNhan(int maBenhNhan) {
+    public void setMaBenhNhan(Integer maBenhNhan) {
         this.maBenhNhan = maBenhNhan;
     }
 }
