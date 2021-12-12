@@ -3,6 +3,8 @@ package nhom13.covid.View.BenhNhanQuocGia;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.*;
+
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +42,7 @@ public class XemBenhNhanQuocGia implements Initializable {
     @FXML
     private TextField searchText;
 
-    private BenhNhanQuocGiaDao benhNhanQuocGiaDao = new BenhNhanQuocGiaDao();
+    private final BenhNhanQuocGiaDao benhNhanQuocGiaDao = new BenhNhanQuocGiaDao();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,7 +51,17 @@ public class XemBenhNhanQuocGia implements Initializable {
 
         hoVaTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoVaTen"));
         cccdColumn.setCellValueFactory(new PropertyValueFactory<>("cccd"));
-        gioiTinhColumn.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
+
+        gioiTinhColumn.setCellValueFactory(data -> {
+            BenhNhanQuocGia benhNhanQuocGia = data.getValue();
+            SimpleStringProperty gioiTinh = new SimpleStringProperty();
+            if (benhNhanQuocGia.getGioiTinh())
+                gioiTinh.setValue("Nam");
+            else
+                gioiTinh.setValue("Nữ");
+            return gioiTinh;
+        });
+
         tuoiColumn.setCellValueFactory(new PropertyValueFactory<>("tuoi"));
         noiNhiemColumn.setCellValueFactory(new PropertyValueFactory<>("noiNhiem"));
         tdNhiemColumn.setCellValueFactory(new PropertyValueFactory<>("tdNhiem"));
@@ -57,11 +69,11 @@ public class XemBenhNhanQuocGia implements Initializable {
     }
 
     public void search(ActionEvent event) {
-        BenhNhanQuocGiaDao dao = new BenhNhanQuocGiaDao();
-        List<BenhNhanQuocGia> list = dao.getAll();
+        List<BenhNhanQuocGia> list = benhNhanQuocGiaDao.getAll();
         BenhNhanQuocGia benhnhan = null;
         List<BenhNhanQuocGia> listsearch = new ArrayList<>();
-        if (searchText.getText() == ""){
+
+        if (searchText.getText().equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
 
             alert.setTitle("Error ");
@@ -76,12 +88,11 @@ public class XemBenhNhanQuocGia implements Initializable {
                 listsearch.add(list.get(i));
             }
         }
+
         if (!listsearch.isEmpty()) {
-            ObservableList<BenhNhanQuocGia> list2
-                    = FXCollections.observableArrayList(listsearch);
+            ObservableList<BenhNhanQuocGia> list2 = FXCollections.observableArrayList(listsearch);
             table.setItems(list2);
             list.clear();
-
         } else {
             if (!isStringInteger(searchText.getText())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -109,9 +120,7 @@ public class XemBenhNhanQuocGia implements Initializable {
                             = FXCollections.observableArrayList(benhnhan);
                     table.setItems(list2);
                 }
-
             }
-
         }
         searchText.clear();
     }

@@ -1,4 +1,3 @@
-/** Mạnh Thắng **/
 package nhom13.covid;
 
 import javafx.application.Application;
@@ -8,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * @// TODO: 12/13/2021 userview + gộp thống kê
+ */
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);

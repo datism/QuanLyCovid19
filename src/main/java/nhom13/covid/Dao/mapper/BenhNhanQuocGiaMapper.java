@@ -10,10 +10,10 @@ public class BenhNhanQuocGiaMapper implements RowMapper<BenhNhanQuocGia> {
     @Override
     public BenhNhanQuocGia mapRow(ResultSet resultSet) {
         try {
-            //Khởi tạo đối tượng testCovid
+            //Khởi tạo đối tượng
             BenhNhanQuocGia benhNhanQuocGia = new BenhNhanQuocGia();
 
-            //Thiết lập các thuộc tính của đối tượng testCovid theo hàng được truy vấn
+            //Thiết lập các thuộc tính của đối tượng theo hàng được truy vấn
             benhNhanQuocGia.setHoVaTen(resultSet.getString("Hovaten"));
             benhNhanQuocGia.setCccd(resultSet.getString("CCCD"));
             benhNhanQuocGia.setTuoi(resultSet.getInt("Tuoi"));

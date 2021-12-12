@@ -5,14 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import nhom13.covid.Dao.TestCovidDao;
 import nhom13.covid.Model.TestCovid;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
+import org.controlsfx.validation.ValidationSupport;
 
 import java.net.URL;
 import java.sql.Date;
@@ -127,6 +131,18 @@ public class XemTestCovid implements Initializable {
         //Form test covid
         FormTestCovid form = (FormTestCovid) formTestCovid.getChildren().get(0);
 
+        ValidationSupport vs = form.getValidationSupport();
+        if (vs.isInvalid()) {
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text("Mời nhập lại")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return;
+        }
+
+
         //Lấy đối tượng được thay đổi
         TestCovid testCovid = new TestCovid();
         testCovid.setHoVaTen(form.getHoVaTen());
@@ -140,6 +156,13 @@ public class XemTestCovid implements Initializable {
 
         //Cập nhật db
         testCovidDao.update(testCovid);
+
+        Notifications.create()
+                .title("Thành công")
+                .text("Sửa thông tin xét nghiệm covid thành công")
+                .position(Pos.TOP_RIGHT)
+                .hideAfter(Duration.seconds(5))
+                .showConfirm();
 
         //reset
         taiLaiClicked(null);

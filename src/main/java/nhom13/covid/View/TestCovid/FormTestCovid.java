@@ -4,6 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -44,7 +45,7 @@ public class FormTestCovid extends GridPane {
     @FXML
     private DatePicker ngayTestDatePicker;
 
-    private final ValidationSupport validationSupport = new ValidationSupport();
+    private ValidationSupport validationSupport;
 
     private final String[] ketQuaArr = {"Duơng tính", "Âm tính"};
 
@@ -70,6 +71,9 @@ public class FormTestCovid extends GridPane {
         }
 
         ketQuaChoiceBox.getItems().setAll(ketQuaArr);
+
+        validationSupport = new ValidationSupport();
+
         validationSupport.registerValidator(hoVaTenTextField, Validator.createEmptyValidator("Không được bỏ trống"));
         validationSupport.registerValidator(canCuocCongDanTextField, Validator.createRegexValidator("Căn cước công dân chứa 12 chữ số", "\\d{12}", Severity.ERROR));
         validationSupport.registerValidator(maNhanKhauTextField, Validator.createRegexValidator("Mã nhân khẩu phải là số nguyên", "\\d+", Severity.ERROR));
@@ -78,6 +82,8 @@ public class FormTestCovid extends GridPane {
         validationSupport.registerValidator(hinhThucTestTextField, Validator.createEmptyValidator("Không được bỏ trống"));
         validationSupport.registerValidator(ketQuaChoiceBox, Validator.createEmptyValidator("Phải chọn kết quả"));
         validationSupport.registerValidator(ngayTestDatePicker, Validator.createEmptyValidator("Phải chọn ngày"));
+
+
     }
 
     public FormTestCovid(TestCovid testCovid) {
@@ -92,6 +98,10 @@ public class FormTestCovid extends GridPane {
         setNgayTest(testCovid.getNgayTest());
 
         maNhanKhauTextField.setEditable(false);
+    }
+
+    public ValidationSupport getValidationSupport() {
+        return validationSupport;
     }
 
     private StringProperty hoVaTenProperty(){
