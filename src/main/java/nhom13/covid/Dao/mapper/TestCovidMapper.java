@@ -21,7 +21,7 @@ public class TestCovidMapper implements RowMapper<TestCovid> {
             testCovid.setMaNhanKhau(resultSet.getInt("Manhankhau"));
             testCovid.setSoDt(resultSet.getString("Sodienthoai"));
             testCovid.setSoLanTest(resultSet.getInt("Solantest"));
-            testCovid.setHinhThucTest(resultSet.getString("Hinhthuctest"));
+            testCovid.setHinhThucTest(resultSet.getString("Hinrehthuctest"));
             testCovid.setKetQua(resultSet.getBoolean("Ketqua"));
             testCovid.setNgayTest(resultSet.getDate("Ngaytest"));
             return testCovid;
