@@ -1,22 +1,52 @@
 package nhom13.covid.Dao;
 
+import nhom13.covid.Dao.mapper.TestCovidMapper;
 import nhom13.covid.Model.TestCovid;
 
 import java.util.List;
 
-public class TestCovidDao implements Dao<TestCovid> {
-    @Override
+/**
+ * @author trdat
+ */
+public class TestCovidDao extends AbstractDao<TestCovid> {
+
     public List<TestCovid> getAll() {
-        return null;
+        String query = "Select * FROM Thongtintestcovid";
+        return super.query(query, new TestCovidMapper());
     }
 
-    @Override
+    public List<TestCovid> getByKetqua(Boolean ketQua) {
+        String query = "Select * FROM Thongtintestcovid WHERE Ketqua = ?";
+        return super.query(query, new TestCovidMapper(), ketQua);
+    }
+
     public void update(TestCovid testCovid) {
-
+        String query = "UPDATE Thongtintestcovid SET Hovaten = ?, CCCD = ?, Sodienthoai = ?, Solantest = ?," +
+                "Hinhthuctest = ?, Ketqua = ?, Ngaytest = ?, WHERE Manhankhau = ?";
+        super.update(query, testCovid.getHoVaTen(), testCovid.getCccd(), testCovid.getSoDt(), testCovid.getSoLanTest(),
+                testCovid.getHinhThucTest(), testCovid.getKetQua(), testCovid.getNgayTest(), testCovid.getMaNhanKhau());
     }
 
-    @Override
-    public void delete(TestCovid testCovid) {
-
+    public void insert(TestCovid testCovid) {
+        String query = "INSERT INTO Thongtintestcovid(Hovaten, CCCD, MaNhankhau, Sodienthoai, Solantest, Hinhthuctest, Ketqua, Ngaytest) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        super.update(query, testCovid.getHoVaTen(), testCovid.getCccd(), testCovid.getMaNhanKhau(), testCovid.getSoDt(), testCovid.getSoLanTest(),
+                testCovid.getHinhThucTest(), testCovid.getKetQua(), testCovid.getNgayTest());
     }
+
+    public void delete(int maNhanKhau) {
+        String query = "DELETE FROM Thongtintestcovid WHERE Manhankhau = ?";
+        super.update(query, maNhanKhau);
+    }
+
+    public Integer countAll() {
+        String query = "Select count(*) FROM Thongtintestcovid";
+        return super.count(query);
+    }
+
+    public Integer countByKetqua(Boolean ketQua) {
+        String query = "Select count(*) FROM Thongtintestcovid WHERE Ketqua = ?";
+        return super.count(query, ketQua);
+    }
+
 }

@@ -131,19 +131,19 @@ CREATE TABLE Thongtintestcovid
     Solantest    INT           NOT NULL,
     Hinhthuctest NVARCHAR(50)  NOT NULL,
     Ketqua       BIT           NOT NULL,
-    Mucdonhiem_F INT           NULL,
-    Candicachly  BIT           NOT NULL
+    Ngaytest     DATE          NOT NULL
 )
 GO
 
 CREATE TABLE Nguoicachly
 (
-    Hovaten           NVARCHAR(50)  NOT NULL,
-    Manhankhau        INT           NOT NULL,
-    Mucdocachly_F     INT           NULL,
-    Thoidiemcachly    DATE          NOT NULL,
-    Tinhtrang         BIT           NOT NULL,
-    Khuvuccachly      NVARCHAR(100) NULL
+    Hovaten				NVARCHAR(50)  NOT NULL,
+    Manhankhau			INT           NOT NULL,
+    Mucdocachly_F		INT           NULL,
+    Thoidiemcachly		DATE          NOT NULL,
+	Mabenhnhantiepxuc	INT           NULL,
+    Tinhtrang			BIT           NOT NULL,
+    Khuvuccachly		NVARCHAR(100) NULL
 )
 GO
 

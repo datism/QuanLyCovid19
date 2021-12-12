@@ -3,7 +3,7 @@ package nhom13.covid.Model;
 import java.util.Date;
 
 /**
- * @author  ddat
+ * @author  trdat
  */
 public class KhaiBaoYTe {
     String hoVaTen;

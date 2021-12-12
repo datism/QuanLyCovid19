@@ -1,20 +1,21 @@
 package nhom13.covid.Model;
 
+import java.sql.Date;
+
 /**
- * @author ddat
+ * @author trdat
  */
 public class TestCovid {
     String hoVaTen;
     String cccd;
-    int maNhanKhau;
+    Integer maNhanKhau;
     String soDt;
-    int soLanTest;
+    Integer soLanTest;
     String hinhThucTest;
-    String ketQua;
-    int mucDo;
-    boolean cachLy;
+    Boolean ketQua;
+    Date ngayTest;
 
-    public TestCovid(String hoVaTen, String cccd, int maNhanKhau, String soDt, int soLanTest, String hinhThucTest, String ketQua, int mucDo, boolean cachLy) {
+    public TestCovid(String hoVaTen, String cccd, Integer maNhanKhau, String soDt, Integer soLanTest, String hinhThucTest, Boolean ketQua, Date ngayTest) {
         this.hoVaTen = hoVaTen;
         this.cccd = cccd;
         this.maNhanKhau = maNhanKhau;
@@ -22,9 +23,10 @@ public class TestCovid {
         this.soLanTest = soLanTest;
         this.hinhThucTest = hinhThucTest;
         this.ketQua = ketQua;
-        this.mucDo = mucDo;
-        this.cachLy = cachLy;
+        this.ngayTest = ngayTest;
     }
+
+    public TestCovid() {}
 
     public String getHoVaTen() {
         return hoVaTen;
@@ -42,11 +44,11 @@ public class TestCovid {
         this.cccd = cccd;
     }
 
-    public int getMaNhanKhau() {
+    public Integer getMaNhanKhau() {
         return maNhanKhau;
     }
 
-    public void setMaNhanKhau(int maNhanKhau) {
+    public void setMaNhanKhau(Integer maNhanKhau) {
         this.maNhanKhau = maNhanKhau;
     }
 
@@ -58,11 +60,11 @@ public class TestCovid {
         this.soDt = soDt;
     }
 
-    public int getSoLanTest() {
+    public Integer getSoLanTest() {
         return soLanTest;
     }
 
-    public void setSoLanTest(int soLanTest) {
+    public void setSoLanTest(Integer soLanTest) {
         this.soLanTest = soLanTest;
     }
 
@@ -74,27 +76,19 @@ public class TestCovid {
         this.hinhThucTest = hinhThucTest;
     }
 
-    public String getKetQua() {
+    public Boolean getKetQua() {
         return ketQua;
     }
 
-    public void setKetQua(String ketQua) {
+    public void setKetQua(Boolean ketQua) {
         this.ketQua = ketQua;
     }
 
-    public int getMucDo() {
-        return mucDo;
+    public Date getNgayTest() {
+        return ngayTest;
     }
 
-    public void setMucDo(int mucDo) {
-        this.mucDo = mucDo;
-    }
-
-    public boolean isCachLy() {
-        return cachLy;
-    }
-
-    public void setCachLy(boolean cachLy) {
-        this.cachLy = cachLy;
+    public void setNgayTest(Date ngayTest) {
+        this.ngayTest = ngayTest;
     }
 }
