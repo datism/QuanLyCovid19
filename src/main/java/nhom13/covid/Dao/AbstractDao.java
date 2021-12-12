@@ -12,9 +12,12 @@ import java.util.List;
  */
 public class AbstractDao<T>{
     public Connection getConnection() {
+        String db = "Quanlycovid19";
+        String user = "admin";
+        String pass = "1";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=Quanlycovid19;user=admin;password=1";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=" + db + ";user=" + user + ";password=" + pass;
             return DriverManager.getConnection(url);
         } catch (SQLException | ClassNotFoundException e) {
             return null;
