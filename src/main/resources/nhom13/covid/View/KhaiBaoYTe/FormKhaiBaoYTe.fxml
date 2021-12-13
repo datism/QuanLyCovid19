@@ -1,74 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.KhaiBaoYTe.KhaiBaoYTeForm">
+
+<AnchorPane prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.KhaiBaoYTe.KhaiBaoYTeForm">
    <children>
-      <Label layoutX="147.0" layoutY="23.0" text="KHAI BÁO Y TẾ" textFill="#d18243">
-         <font>
-            <Font name="Cambria Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="44.0" layoutY="69.0" text="Họ và tên:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="44.0" layoutY="111.0" text="Số CMND hoặc CCCD:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="286.0" layoutY="111.0" text="Mã nhân khẩu:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="46.0" layoutY="152.0" text="Số điện thoại:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="46.0" layoutY="188.0" text="Email:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="46.0" layoutY="232.0" text="Nơi di chuyển:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="44.0" layoutY="277.0" text="Triệu chứng:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="40.0" layoutY="358.0" text="Tiền sử:" AnchorPane.leftAnchor="40.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="208.0" layoutY="428.0" mnemonicParsing="false" onAction="#khaiBao" text="GỬI TỜ KHAI" />
-      <CheckBox fx:id="sot" layoutX="145.0" layoutY="281.0" mnemonicParsing="false" text="Sốt" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
-      <CheckBox fx:id="ho" layoutX="208.0" layoutY="282.0" mnemonicParsing="false" text="Ho" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
-      <CheckBox fx:id="khoTho" layoutX="274.0" layoutY="282.0" mnemonicParsing="false" text="Khó thở" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
-      <CheckBox fx:id="dauHong" layoutX="361.0" layoutY="282.0" mnemonicParsing="false" text="Đau họng" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
-      <TextField fx:id="hoVaTen" layoutX="157.0" layoutY="69.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="maNhanKhau" layoutX="398.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="cccd" layoutX="208.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.leftAnchor="200.0" />
-      <TextField fx:id="soDt" layoutX="305.0" layoutY="152.0" prefHeight="25.0" prefWidth="318.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="Email" layoutX="112.0" layoutY="188.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="noiDiChuyen" layoutX="160.0" layoutY="232.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="tienSu" layoutX="157.0" layoutY="358.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <TextField fx:id="trieuChung" layoutX="170.0" layoutY="315.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
-      <Label layoutX="104.0" layoutY="319.0" text="Khác:" />
-      <Label fx:id="Error" layoutX="81.0" layoutY="396.0" textFill="#e81010">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="350.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <Label layoutX="147.0" layoutY="23.0" text="KHAI BÁO Y TẾ" textFill="#d18243">
+               <font>
+                  <Font name="Cambria Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="69.0" text="Họ và tên:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="111.0" text="Số CMND hoặc CCCD:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="286.0" layoutY="111.0" text="Mã nhân khẩu:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="152.0" text="Số điện thoại:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="188.0" text="Email:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="232.0" text="Nơi di chuyển:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="277.0" text="Triệu chứng:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="358.0" text="Tiền sử:" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="208.0" layoutY="428.0" mnemonicParsing="false" onAction="#khaiBao" text="GỬI TỜ KHAI" />
+            <CheckBox fx:id="sot" layoutX="145.0" layoutY="281.0" mnemonicParsing="false" text="Sốt" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
+            <CheckBox fx:id="ho" layoutX="208.0" layoutY="282.0" mnemonicParsing="false" text="Ho" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
+            <CheckBox fx:id="khoTho" layoutX="274.0" layoutY="282.0" mnemonicParsing="false" text="Khó thở" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
+            <CheckBox fx:id="dauHong" layoutX="361.0" layoutY="282.0" mnemonicParsing="false" text="Đau họng" AnchorPane.bottomAnchor="202.0" AnchorPane.topAnchor="280.0" />
+            <TextField fx:id="hoVaTen" layoutX="157.0" layoutY="69.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="maNhanKhau" layoutX="398.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="cccd" layoutX="208.0" layoutY="111.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.leftAnchor="200.0" />
+            <TextField fx:id="soDt" layoutX="305.0" layoutY="152.0" prefHeight="25.0" prefWidth="318.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="Email" layoutX="112.0" layoutY="188.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="noiDiChuyen" layoutX="160.0" layoutY="232.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="tienSu" layoutX="157.0" layoutY="358.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+            <TextField fx:id="trieuChung" layoutX="170.0" layoutY="315.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.rightAnchor="35.0" />
+            <Label layoutX="104.0" layoutY="319.0" text="Khác:" />
+            <Label fx:id="Error" layoutX="81.0" layoutY="396.0" textFill="#e81010">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

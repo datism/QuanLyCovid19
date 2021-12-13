@@ -3,6 +3,7 @@ package nhom13.covid.Dao;
 import nhom13.covid.Dao.mapper.TestCovidMapper;
 import nhom13.covid.Model.TestCovid;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -13,11 +14,6 @@ public class TestCovidDao extends AbstractDao<TestCovid> {
     public List<TestCovid> getAll() {
         String query = "Select * FROM Thongtintestcovid";
         return super.query(query, new TestCovidMapper());
-    }
-
-    public List<TestCovid> getByKetqua(Boolean ketQua) {
-        String query = "Select * FROM Thongtintestcovid WHERE Ketqua = ?";
-        return super.query(query, new TestCovidMapper(), ketQua);
     }
 
     public void update(TestCovid testCovid) {
@@ -39,14 +35,5 @@ public class TestCovidDao extends AbstractDao<TestCovid> {
         super.update(query, maNhanKhau);
     }
 
-    public Integer countAll() {
-        String query = "Select count(*) FROM Thongtintestcovid";
-        return super.count(query);
-    }
-
-    public Integer countByKetqua(Boolean ketQua) {
-        String query = "Select count(*) FROM Thongtintestcovid WHERE Ketqua = ?";
-        return super.count(query, ketQua);
-    }
 
 }

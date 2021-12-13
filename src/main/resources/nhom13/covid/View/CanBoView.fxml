@@ -53,7 +53,7 @@
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Xem/Tra cứu">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#xemCovidQuocGiaClicked" text="Covid quốc gia" />
-                  <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
+                  <MenuItem mnemonicParsing="false" onAction="#xemCachLyDiaPhuongClicked" text="Cách ly địa phương" />
                   <MenuItem mnemonicParsing="false" onAction="#xemKhaiBaoYTe" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#xemTestCovid" text="Test covid" />
                </items>
@@ -74,7 +74,7 @@
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="268.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thống kê">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#thongKeCovidQuocGiaCLicked" text="Covid quốc gia" />
-                  <MenuItem mnemonicParsing="false" text="Cách ly địa phương" />
+                  <MenuItem mnemonicParsing="false" onAction="#thongKeCachLyDiaPhuongClicked" text="Cách ly địa phương" />
                   <MenuItem mnemonicParsing="false" onAction="#thongKeKhaiBaoYTe" text="Khai báo y tế" />
                   <MenuItem mnemonicParsing="false" onAction="#thongKeTestCovid" text="Test covid" />
                </items>

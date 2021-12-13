@@ -3,14 +3,18 @@ package nhom13.covid.View.TestCovid;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import nhom13.covid.Dao.TestCovidDao;
 import nhom13.covid.Model.TestCovid;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.Period;
 import java.time.YearMonth;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.TreeMap;
 
 /**
  * @author trdat
@@ -19,39 +23,48 @@ public class ThongkeTestCovid implements Initializable {
     @FXML
     private BarChart<String, Integer> testCovidBar;
 
-    @FXML
-    private PieChart testCovidPie;
-
     TestCovidDao testCovidDao;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         testCovidDao = new TestCovidDao();
-        List<TestCovid> duongTinhList = new ArrayList<>(testCovidDao.getByKetqua(true));
+        creatTestCovidBar();
+    }
 
-        Map<YearMonth, Integer> noDtMonth = new TreeMap<>();
-        for (TestCovid testCovid: duongTinhList) {
-            YearMonth key = YearMonth.from(testCovid.getNgayTest().toLocalDate());
-            if(noDtMonth.get(key) != null)
-                noDtMonth.put(key, noDtMonth.get(key) + 1);
+    private void creatTestCovidBar() {
+        List<TestCovid> testCovids = testCovidDao.getAll();
+        Map<YearMonth, Integer> duongTinhMap = new TreeMap<>();
+        Map<YearMonth, Integer> amTinhMap = new TreeMap<>();
+
+        for (TestCovid testCovid: testCovids) {
+            YearMonth month = YearMonth.from(testCovid.getNgayTest().toLocalDate());
+            if (!duongTinhMap.containsKey(month)) {
+                duongTinhMap.put(month, 0);
+                amTinhMap.put(month, 0);
+            }
+
+            if (testCovid.getKetQua())
+                duongTinhMap.put(month, duongTinhMap.get(month) + 1);
             else
-                noDtMonth.put(key, 0);
+                amTinhMap.put(month, amTinhMap.get(month) + 1);
+
         }
 
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        noDtMonth.forEach((yearMonth, integer) -> {
-            series.getData().add(new XYChart.Data<>(yearMonth.toString(), integer));
+        XYChart.Series<String, Integer> duongTinhSeries = new XYChart.Series<>();
+        XYChart.Series<String, Integer> amTinhSeries = new XYChart.Series<>();
+
+        duongTinhSeries.setName("Dương Tính");
+        amTinhSeries.setName("Âm Tính");
+
+        duongTinhMap.forEach((key, value) -> {
+            duongTinhSeries.getData().add(new XYChart.Data<>(key.toString(), value));
         });
 
-        testCovidBar.getData().add(series);
+        amTinhMap.forEach((key, value) -> {
+            amTinhSeries.getData().add(new XYChart.Data<>(key.toString(), value));
+        });
 
-        Integer noDuongtinh = testCovidDao.countByKetqua(true);
-        Integer noAmtinh = testCovidDao.countByKetqua(false);
-
-        PieChart.Data duongTinhSlice = new PieChart.Data("Dương tính", noDuongtinh);
-        PieChart.Data amTinhSlice = new PieChart.Data("Âm tính", noAmtinh);
-        PieChart.Data chuaTestSlice = new PieChart.Data("Chưa test", 500 - noAmtinh - noDuongtinh);
-
-        testCovidPie.getData().addAll(duongTinhSlice, amTinhSlice, chuaTestSlice);
+        testCovidBar.getData().setAll(duongTinhSeries, amTinhSeries);
     }
+
 }

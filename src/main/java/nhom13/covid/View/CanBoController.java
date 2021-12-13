@@ -3,16 +3,14 @@ package nhom13.covid.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class CanBoController implements Initializable {
+
+public class CanBoController {
     @FXML
-    private AnchorPane anchorPane;
+    protected AnchorPane anchorPane;
 
     @FXML
     void themTestCovid(ActionEvent event) {
@@ -84,8 +82,14 @@ public class CanBoController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void thongKeCachLyDiaPhuongClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void xemCachLyDiaPhuongClicked(ActionEvent event) {
+
     }
 
 }

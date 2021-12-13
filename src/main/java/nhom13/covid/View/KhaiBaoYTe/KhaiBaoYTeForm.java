@@ -18,9 +18,11 @@ import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
+import java.net.URL;
 import java.sql.Date;
+import java.util.ResourceBundle;
 
-public class KhaiBaoYTeForm {
+public class KhaiBaoYTeForm implements Initializable{
     @FXML
     private TextField hoVaTen;
     @FXML
@@ -46,23 +48,9 @@ public class KhaiBaoYTeForm {
     @FXML
     private CheckBox dauHong;
 
-    private KhaiBaoYTeDao khaiBaoYTeDao;
-    private NhanKhauDao nhanKhauDao;
-    private ValidationSupport validationSupport;
-
-    public KhaiBaoYTeForm() {
-        khaiBaoYTeDao = new KhaiBaoYTeDao();
-        nhanKhauDao = new NhanKhauDao();
-        validationSupport = new ValidationSupport();
-
-        validationSupport.registerValidator(hoVaTen, Validator.createEmptyValidator("Không được bỏ trống"));
-        validationSupport.registerValidator(cccd, Validator.createRegexValidator("Căn cước công dân chứa 12 chữ số", "\\d{12}", Severity.ERROR));
-        validationSupport.registerValidator(maNhanKhau, Validator.createRegexValidator("Mã nhân khẩu phải là số nguyên", "\\d+", Severity.ERROR));
-        validationSupport.registerValidator(soDt, Validator.createRegexValidator("Số điện thoại chứa phải có 11 chữ số", "\\d{11}", Severity.ERROR));
-    }
-
     //thêm khai báp y tế
-    public void khaiBao(ActionEvent actionEvent) {
+    @FXML
+    void khaiBao(ActionEvent actionEvent) {
         if (validationSupport.isInvalid()) {
             Notifications.create()
                     .title("Lỗi input")
@@ -105,5 +93,21 @@ public class KhaiBaoYTeForm {
                 .position(Pos.TOP_RIGHT)
                 .hideAfter(Duration.seconds(5))
                 .showConfirm();
+    }
+
+    private KhaiBaoYTeDao khaiBaoYTeDao;
+    private NhanKhauDao nhanKhauDao;
+    private ValidationSupport validationSupport;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        khaiBaoYTeDao = new KhaiBaoYTeDao();
+        nhanKhauDao = new NhanKhauDao();
+        validationSupport = new ValidationSupport();
+
+        validationSupport.registerValidator(hoVaTen, Validator.createEmptyValidator("Không được bỏ trống"));
+        validationSupport.registerValidator(cccd, Validator.createRegexValidator("Căn cước công dân chứa 12 chữ số", "\\d{12}", Severity.ERROR));
+        validationSupport.registerValidator(maNhanKhau, Validator.createRegexValidator("Mã nhân khẩu phải là số nguyên", "\\d+", Severity.ERROR));
+        validationSupport.registerValidator(soDt, Validator.createRegexValidator("Số điện thoại chứa phải có 11 chữ số", "\\d{11}", Severity.ERROR));
     }
 }

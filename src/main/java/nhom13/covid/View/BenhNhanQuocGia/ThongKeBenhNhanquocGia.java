@@ -3,21 +3,18 @@ package nhom13.covid.View.BenhNhanQuocGia;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import nhom13.covid.Dao.BenhNhanQuocGiaDao;
 import nhom13.covid.Model.BenhNhanQuocGia;
 
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.time.YearMonth;
+import java.util.*;
 
 public class ThongKeBenhNhanquocGia implements Initializable {
     @FXML
-    private BarChart<String, Integer> ngayBarChar;
+    private BarChart<Integer, String> thangBarChart;
 
     @FXML
     private BarChart<String, Integer> tuoiBarChart;
@@ -62,60 +59,28 @@ public class ThongKeBenhNhanquocGia implements Initializable {
         tuoiBarChart.getData().add(dataSeries);
     }
 
-    public void creatChartngay() {
-        Date now = new Date();
-        int a[] = new int[10];
-        LocalDate dateNow = LocalDate.of(now.getYear(), now.getMonth() + 1, now.getDate());
-        for (int i = 0; i < list.size(); i++) {
-            LocalDate date = LocalDate.of(list.get(i).getTdNhiem().getYear(),
-                    list.get(i).getTdNhiem().getMonth() + 1,
-                    list.get(i).getTdNhiem().getDate());
-            int count = Period.between(date, dateNow).getDays()
-                    + Period.between(date, dateNow).getMonths() * 30
-                    + Period.between(date, dateNow).getYears() * 365;
-
-            switch (count) {
-                case 0 ->
-                        a[0]++;
-                case 1 ->
-                        a[1]++;
-                case 2 ->
-                        a[2]++;
-                case 3 ->
-                        a[3]++;
-                case 4 ->
-                        a[4]++;
-                case 5 ->
-                        a[5]++;
-                case 6 ->
-                        a[6]++;
-                case 7 ->
-                        a[7]++;
-                case 8 ->
-                        a[8]++;
-                case 9 ->
-                        a[9]++;
-            }
-
+    public void creatChartCaNhiem() {
+        Map<YearMonth, Integer> map = new TreeMap<>();
+        for (BenhNhanQuocGia benhNhan: list) {
+            YearMonth yearMonth = YearMonth.from(benhNhan.getTdNhiem().toLocalDate());
+            if (map.containsKey(yearMonth))
+                map.put(yearMonth, map.get(yearMonth) + 1);
+            else map.put(yearMonth, 1);
         }
 
-        XYChart.Series<String, Integer> dataSeries = new XYChart.Series<>();
-        dataSeries.setName("Số lượng");
+        XYChart.Series<Integer, String> series = new XYChart.Series<>();
 
-        for (int i = 0; i < 10; i++) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DATE, -i);
-            dataSeries.getData().add(new XYChart.Data<>(
-                    calendar.getTime().getDate() + "-" + (calendar.getTime().getMonth() + 1), a[i]));
-        }
+        map.forEach((key, value) -> {
+            series.getData().add(new XYChart.Data<>(value, key.toString()));
+        });
 
-        ngayBarChar.getData().add(dataSeries);
+        thangBarChart.getData().add(series);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list = benhNhanQuocGiaDao.getAll();
-        creatChartngay();
+        creatChartCaNhiem();
         createCharttuoi();
     }
 }

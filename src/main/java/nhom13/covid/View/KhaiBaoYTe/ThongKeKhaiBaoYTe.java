@@ -8,10 +8,6 @@ import javafx.scene.input.MouseEvent;
 import nhom13.covid.Dao.KhaiBaoYTeDao;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ThongKeKhaiBaoYTe implements Initializable {
