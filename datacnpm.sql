@@ -140,10 +140,9 @@ CREATE TABLE Nguoicachly
 (
     Hovaten				NVARCHAR(50)  NOT NULL,
     Manhankhau			INT           NOT NULL,
-    Mucdocachly_F		INT           NULL,
+    Mucdocachly_F		INT           NOT NULL,
     Thoidiemcachly		DATE          NOT NULL,
 	Mabenhnhantiepxuc	INT           NULL,
-    Tinhtrang			BIT           NOT NULL,
     Khuvuccachly		NVARCHAR(100) NULL
 )
 GO

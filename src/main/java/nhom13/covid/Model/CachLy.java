@@ -7,19 +7,22 @@ import java.sql.Date;
  */
 public class CachLy {
     String hoVaTen;
-    String maNhanKhau;
-    int mucDo;
-    boolean tinhTrang;
+    Integer maNhanKhau;
+    Integer mucDo;
+    Integer benhNhanTx;
     Date tdCachLy;
     String kvCachLy;
 
-    public CachLy(String hoVaTen, String maNhanKhau, int mucDo, boolean tinhTrang, Date tdCachLy, String kvCachLy) {
+    public CachLy(String hoVaTen, Integer maNhanKhau, Integer mucDo, Integer benhNhanTx, Date tdCachLy, String kvCachLy) {
         this.hoVaTen = hoVaTen;
         this.maNhanKhau = maNhanKhau;
         this.mucDo = mucDo;
-        this.tinhTrang = tinhTrang;
+        this.benhNhanTx = benhNhanTx;
         this.tdCachLy = tdCachLy;
         this.kvCachLy = kvCachLy;
+    }
+
+    public CachLy() {
     }
 
     public String getHoVaTen() {
@@ -30,28 +33,28 @@ public class CachLy {
         this.hoVaTen = hoVaTen;
     }
 
-    public String getMaNhanKhau() {
+    public Integer getMaNhanKhau() {
         return maNhanKhau;
     }
 
-    public void setMaNhanKhau(String maNhanKhau) {
+    public void setMaNhanKhau(Integer maNhanKhau) {
         this.maNhanKhau = maNhanKhau;
     }
 
-    public int getMucDo() {
+    public Integer getMucDo() {
         return mucDo;
     }
 
-    public void setMucDo(int mucDo) {
+    public void setMucDo(Integer mucDo) {
         this.mucDo = mucDo;
     }
 
-    public boolean isTinhTrang() {
-        return tinhTrang;
+    public Integer getBenhNhanTx() {
+        return benhNhanTx;
     }
 
-    public void setTinhTrang(boolean tinhTrang) {
-        this.tinhTrang = tinhTrang;
+    public void setBenhNhanTx(Integer benhNhanTx) {
+        this.benhNhanTx = benhNhanTx;
     }
 
     public Date getTdCachLy() {

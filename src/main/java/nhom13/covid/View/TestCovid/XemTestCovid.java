@@ -78,14 +78,10 @@ public class XemTestCovid implements Initializable {
 
         //Truy vấn db lấy kết quả
         switch (timKiemTheo) {
-            case "Họ và tên" -> stream = testCovidList.stream()
-                    .filter(testCovid -> timKiem.equals(testCovid.getHoVaTen()));
-            case "Căn cước công dân" -> stream = testCovidList.stream()
-                    .filter(testCovid -> timKiem.equals(testCovid.getCccd()));
-            case "Mã nhân khẩu" -> stream = testCovidList.stream()
-                    .filter(testCovid -> Integer.valueOf(timKiem).equals(testCovid.getMaNhanKhau()));
-            case "Số điện thoại" -> stream = testCovidList.stream()
-                    .filter(testCovid -> timKiem.equals(testCovid.getSoDt()));
+            case "Họ và tên" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getHoVaTen()));
+            case "Căn cước công dân" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getCccd()));
+            case "Mã nhân khẩu" -> stream = stream.filter(testCovid -> Integer.valueOf(timKiem).equals(testCovid.getMaNhanKhau()));
+            case "Số điện thoại" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getSoDt()));
         }
 
         //Hiển thị kết quả

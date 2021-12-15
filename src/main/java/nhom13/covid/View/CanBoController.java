@@ -84,12 +84,22 @@ public class CanBoController {
 
     @FXML
     void thongKeCachLyDiaPhuongClicked(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("CachLy/ThongKeCachLy.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void xemCachLyDiaPhuongClicked(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("CachLy/XemCachLy.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

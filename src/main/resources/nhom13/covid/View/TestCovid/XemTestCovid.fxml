@@ -20,7 +20,7 @@
    <children>
       <HBox AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ChoiceBox fx:id="timKiemChoiceBox" prefHeight="25.0" prefWidth="81.0" />
+            <ChoiceBox fx:id="timKiemChoiceBox" prefHeight="25.0" prefWidth="90.0" />
             <TextField fx:id="timKiemTextField" prefHeight="25.0" prefWidth="336.0" />
             <Button mnemonicParsing="false" onAction="#timKiemButtonCLicked" prefHeight="25.0" prefWidth="42.0" />
          </children>
