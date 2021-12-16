@@ -18,15 +18,15 @@
          <children>
             <ChoiceBox fx:id="timKiemChoiceBox" prefHeight="25.0" prefWidth="100.0" />
             <TextField fx:id="timKiemTextField" prefHeight="25.0" prefWidth="336.0" />
-            <Button mnemonicParsing="false" onAction="#timKiemButtonCLicked" prefHeight="25.0" prefWidth="42.0" />
+            <Button mnemonicParsing="false" onAction="#timKiemButtonCLicked" prefHeight="25.0" prefWidth="68.0" text="Tìm" />
          </children>
       </HBox>
       <VBox alignment="BOTTOM_CENTER" layoutY="189.0" prefHeight="650.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="25.0" prefWidth="700.0" spacing="5.0" VBox.vgrow="NEVER">
                <children>
-                  <DatePicker fx:id="tuNgayDatePicker" prefHeight="25.0" prefWidth="120.0" />
-                  <DatePicker fx:id="denNgayDatePicker" prefHeight="25.0" prefWidth="120.0" />
+                  <DatePicker fx:id="tuNgayDatePicker" prefHeight="25.0" prefWidth="120.0" promptText="Từ ngày" />
+                  <DatePicker fx:id="denNgayDatePicker" prefHeight="25.0" prefWidth="120.0" promptText="Đến ngày" />
                   <ChoiceBox fx:id="mucDoChoiceBox" prefHeight="25.0" prefWidth="100.0" />
                   <Button mnemonicParsing="false" onAction="#locButtonClicked" prefHeight="25.0" prefWidth="100.0" text="Lọc" />
                   <Pane HBox.hgrow="ALWAYS" />

@@ -9,10 +9,13 @@ import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Duration;
 import nhom13.covid.Dao.BenhNhanQuocGiaDao;
 import nhom13.covid.Model.BenhNhanQuocGia;
+import org.controlsfx.control.Notifications;
 
 public class XemBenhNhanQuocGia implements Initializable {
     @FXML
@@ -74,12 +77,12 @@ public class XemBenhNhanQuocGia implements Initializable {
         List<BenhNhanQuocGia> listsearch = new ArrayList<>();
 
         if (searchText.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-
-            alert.setTitle("Error ");
-            alert.setHeaderText("Khong co benh nhan tren");
-            alert.setContentText("Vui long Nhap thong tin!");
-            alert.showAndWait();
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text("Không có bệnh nhân trên, mời nhập lại")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
         }
         String str = searchText.getText().toLowerCase();
 
@@ -95,12 +98,12 @@ public class XemBenhNhanQuocGia implements Initializable {
             list.clear();
         } else {
             if (!isStringInteger(searchText.getText())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-
-                alert.setTitle("Error ");
-                alert.setHeaderText("Khong co benh nhan tren");
-                alert.setContentText("Vui long kiem tra lai thong tin!");
-                alert.showAndWait();
+                Notifications.create()
+                        .title("Lỗi input")
+                        .text("Không có bệnh nhân trên, mời nhập lại")
+                        .position(Pos.TOP_RIGHT)
+                        .hideAfter(Duration.seconds(5))
+                        .showError();
             } else {
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).getMaBenhNhan() == Integer.parseInt(searchText.getText())) {
@@ -109,12 +112,12 @@ public class XemBenhNhanQuocGia implements Initializable {
 
                 }
                 if (benhnhan == null) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-
-                    alert.setTitle("Error ");
-                    alert.setHeaderText("Khong co benh nhan tren");
-                    alert.setContentText("Vui long kiem tra lai id!");
-                    alert.showAndWait();
+                    Notifications.create()
+                            .title("Lỗi input")
+                            .text("Không có bệnh nhân trên, mời nhập lại")
+                            .position(Pos.TOP_RIGHT)
+                            .hideAfter(Duration.seconds(5))
+                            .showError();
                 } else {
                     ObservableList<BenhNhanQuocGia> list2
                             = FXCollections.observableArrayList(benhnhan);

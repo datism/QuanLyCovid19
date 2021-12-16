@@ -3,9 +3,10 @@ package nhom13.covid.View.KhaiBaoYTe;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import nhom13.covid.Dao.KhaiBaoYTeDao;
+import org.controlsfx.control.PopOver;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,10 +15,12 @@ public class ThongKeKhaiBaoYTe implements Initializable {
     @FXML
     private PieChart pieChart;
 
-    private final KhaiBaoYTeDao khaiBaoYTeDao = new KhaiBaoYTeDao();
+    private KhaiBaoYTeDao khaiBaoYTeDao;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        khaiBaoYTeDao = new KhaiBaoYTeDao();
+
         int sotCount = khaiBaoYTeDao.countByTrieuChung("sốt");
         int hoCount = khaiBaoYTeDao.countByTrieuChung("ho");
         int khoThoCount = khaiBaoYTeDao.countByTrieuChung("khó thở");
@@ -35,10 +38,9 @@ public class ThongKeKhaiBaoYTe implements Initializable {
 
         for(PieChart.Data data: pieChart.getData()){
             data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Triệu chứng");
-                alert.setContentText(data.getName() + ": " + (int) data.getPieValue() +" người");
-                alert.showAndWait();
+                Label label = new Label(data.getName() + ": " + (int) data.getPieValue() + " người");
+                PopOver popOver = new PopOver(label);
+                popOver.show(data.getNode());
             });
         }
     }

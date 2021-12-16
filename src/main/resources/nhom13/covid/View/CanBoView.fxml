@@ -21,7 +21,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-home-page-32.png" />
+                        <Image url="@images/home.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -39,7 +39,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-home-page-32.png" />
+                        <Image url="@images/add-new.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -60,7 +60,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-home-page-32.png" />
+                        <Image url="@images/information-sign.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -81,7 +81,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-home-page-32.png" />
+                        <Image url="@images/calculator.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -96,7 +96,7 @@
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-home-page-32.png" />
+                        <Image url="@images/close.png" />
                      </image>
                   </ImageView>
                </graphic>

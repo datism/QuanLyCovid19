@@ -3,8 +3,11 @@ package nhom13.covid.View.CachLy;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import nhom13.covid.Dao.CachLyDao;
 import nhom13.covid.Model.CachLy;
+import org.controlsfx.control.PopOver;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,5 +32,13 @@ public class ThongKeCachLy implements Initializable {
         PieChart.Data f3 = new PieChart.Data("F3", f3Count);
 
         cachLyPie.getData().addAll(f0, f1, f2, f3);
+
+        for(PieChart.Data data: cachLyPie.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                Label label = new Label(data.getName() + ": " + (int) data.getPieValue() + " người");
+                PopOver popOver = new PopOver(label);
+                popOver.show(data.getNode());
+            });
+        }
     }
 }
