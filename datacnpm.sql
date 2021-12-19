@@ -10,7 +10,7 @@ GO
 -----Quan Ly nhan khau, ho khau
 CREATE TABLE Sohokhau
 (
-    Mahokhau INT          NOT NULL,
+    Mahokhau INT          NOT NULL IDENTITY (1,1),
     Sonha    CHAR(10)     NOT NULL,
     DuongID  INT          NOT NULL,
     Chuho    NVARCHAR(50) NOT NULL,
@@ -20,7 +20,7 @@ GO
 
 CREATE TABLE NhanKhau
 (
-    Manhankhau          INT           NOT NULL,
+    Manhankhau          INT           NOT NULL IDENTITY (1,1),
     Hovaten             NVARCHAR(50)  NOT NULL,
     CCCD                VARCHAR(15)   NOT NULL,
     Ngaysinh            DATE          NULL,
@@ -40,16 +40,16 @@ GO
 
 CREATE TABLE Giaytamvang
 (
-    Magiaytamvang NVARCHAR(20) NOT NULL,
+    Magiaytamvang INT          NOT NULL,
     Manhankhau    INT          NOT NULL,
     Ngaytamvang   DATE         NOT NULL,
     Noidi         NVARCHAR(50) NULL
 )
 GO
 
-CREATE TABLE Sotamtru
+CREATE TABLE Giaytamtru
 (
-    Matamtru        INT          NOT NULL,
+    Matamtru        INT          NOT NULL IDENTITY (1,1),
     Mahokhau        INT          NOT NULL,
     Diachithuongtru NVARCHAR(50) NOT NULL,
     Manhankhau      INT          NOT NULL,
@@ -60,7 +60,7 @@ GO
 
 CREATE TABLE PhieuChuyenDi
 (
-    Maphieuchuyendi INT           NOT NULL,
+    Maphieuchuyendi INT           NOT NULL IDENTITY (1,1),
     Noichuyenden    NVARCHAR(100) NULL,
     Ngaychuyendi    DATE          NOT NULL,
     Lydochuyendi    NVARCHAR(MAX) NULL,
@@ -70,18 +70,17 @@ GO
 
 CREATE TABLE PhieuChuyenDen
 (
-    Maphieuchuyenden INT           NOT NULL,
+    Maphieuchuyenden INT           NOT NULL IDENTITY (1,1),
     Manhankhau       INT           NOT NULL,
     Noichuyendi      NVARCHAR(100) NULL,
     Ngaychuyenden    DATE          NOT NULL,
     Lydochuyenden    NVARCHAR(MAX) NOT NULL
-
 )
 GO
 
 CREATE TABLE Phieuthaydoichuho
 (
-    Maphieuthaydoichuho INT           NOT NULL,
+    Maphieuthaydoichuho INT           NOT NULL IDENTITY (1,1),
     Lydothaydoi         NVARCHAR(MAX) NULL,
     Ngaythaydoi         DATE          NOT NULL,
     Machuhocu           INT           NOT NULL,
@@ -92,8 +91,9 @@ GO
 
 CREATE TABLE ACCOUNT
 (
-    Username INT NOT NULL,
-    Password VARCHAR(100)
+    Username INT            NOT NULL,
+    Password VARCHAR(100)   NOT NULL,
+    ACCESS   INT            NOT NULL
 )
 GO
 
@@ -161,7 +161,7 @@ ALTER TABLE dbo.Giaytamvang
     ADD CONSTRAINT PK_Giaytamvang PRIMARY KEY (Magiaytamvang)
 GO
 
-ALTER TABLE dbo.Sotamtru
+ALTER TABLE dbo.Giaytamtru
     ADD CONSTRAINT PK_Sotamtru PRIMARY KEY (Matamtru)
 GO
 
@@ -187,12 +187,12 @@ ALTER TABLE dbo.Giaytamvang
     ADD CONSTRAINT FK_Giaytamvang_NhanKhau FOREIGN KEY (Manhankhau) REFERENCES dbo.NhanKhau (Manhankhau)
 GO
 
-ALTER TABLE dbo.Sotamtru
-    ADD CONSTRAINT FK_Sotamtru_Sohokhau FOREIGN KEY (Mahokhau) REFERENCES dbo.Sohokhau (Mahokhau)
+ALTER TABLE dbo.Giaytamtru
+    ADD CONSTRAINT FK_Giaytamtru_Sohokhau FOREIGN KEY (Mahokhau) REFERENCES dbo.Sohokhau (Mahokhau)
 GO
 
-ALTER TABLE dbo.Sotamtru
-    ADD CONSTRAINT FK_Sotamtru_nhankhau FOREIGN KEY (Manhankhau) REFERENCES dbo.NhanKhau (Manhankhau)
+ALTER TABLE dbo.Giaytamtru
+    ADD CONSTRAINT FK_Giaytamtru_nhankhau FOREIGN KEY (Manhankhau) REFERENCES dbo.NhanKhau (Manhankhau)
 GO
 
 
