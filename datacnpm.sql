@@ -1,8 +1,8 @@
 -- Tao database QuanLycovid
-CREATE DATABASE Quanlycovid19
+CREATE DATABASE Quanlycovid191
 GO
 
-USE QuanLycovid19
+USE QuanLycovid191
 GO
 
 --Tao table
@@ -33,7 +33,7 @@ CREATE TABLE NhanKhau
     Noilamviec          NVARCHAR(50)  NULL,
     Ngaydangkithuongtru DATE          NULL,
     Quanhevoichuho      NVARCHAR(20)  NULL,
-    Mahokhau            INT           NOT NULL,
+    Mahokhau            INT           NULL,
     Ghichu              NVARCHAR(MAX) NULL
 )--Thong tin nhan khau
 GO

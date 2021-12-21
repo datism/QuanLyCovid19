@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ChuyenDenDaoTest {
@@ -29,5 +30,18 @@ class ChuyenDenDaoTest {
         chuyenDenDao.insert(chuyenDen);
         List<ChuyenDen> chuyenDenList = chuyenDenDao.getAll();
         assertEquals(chuyenDenList.size(), 51);
+    }
+
+    @Test
+    void update() {
+        ChuyenDenDao chuyenDenDao = new ChuyenDenDao();
+        ChuyenDen  chuyenDen = new ChuyenDen(0, 12, "sdasd", Date.valueOf(LocalDate.now()), "sda");
+        chuyenDenDao.update(chuyenDen);
+
+        ChuyenDen nChuyenDen = chuyenDenDao.getAll().get(0);
+        assertAll(() -> assertEquals(chuyenDen.getMaChuyenDen(), nChuyenDen.getMaChuyenDen()),
+                () -> assertEquals(chuyenDen.getNgayChuyen(), nChuyenDen.getNgayChuyen()),
+                () -> assertEquals(chuyenDen.getNoiChuyenDi(), nChuyenDen.getNoiChuyenDi()),
+                () -> assertEquals(chuyenDen.getMaNhanKhau(), nChuyenDen.getMaNhanKhau()));
     }
 }

@@ -3,7 +3,6 @@ package nhom13.covid.Dao;
 import nhom13.covid.Dao.mapper.TestCovidMapper;
 import nhom13.covid.Model.TestCovid;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class TestCovidDao extends AbstractDao<TestCovid> {
 
     public void update(TestCovid testCovid) {
         String query = "UPDATE Thongtintestcovid SET Hovaten = ?, CCCD = ?, Sodienthoai = ?, Solantest = ?," +
-                "Hinhthuctest = ?, Ketqua = ?, Ngaytest = ?, WHERE Manhankhau = ?";
+                "Hinhthuctest = ?, Ketqua = ?, Ngaytest = ? WHERE Manhankhau = ?";
         super.update(query, testCovid.getHoVaTen(), testCovid.getCccd(), testCovid.getSoDt(), testCovid.getSoLanTest(),
                 testCovid.getHinhThucTest(), testCovid.getKetQua(), testCovid.getNgayTest(), testCovid.getMaNhanKhau());
     }
