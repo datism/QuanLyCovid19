@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.ToTruongController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" />
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Tổng quan">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="38.0" />
+               </padding>
+            </Button>
+            <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thêm thông tin">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add-new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#themChuyenDen" text="Chuyen den" />
+                  <MenuItem mnemonicParsing="false" onAction="#themChuyenDi" text="Chuyen di" />
+               </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </MenuButton>
+            <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Xem/Tra cứu">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/information-sign.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#xemNguoiChuyenDenClicked" text="Nguoi Chuyen Den" />
+                  <MenuItem mnemonicParsing="false" onAction="#xemNguoiChuyenDiClicked" text="Nguoi Chuyen Di" />
+               </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </MenuButton>
+            <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="268.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thống kê">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/calculator.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </MenuButton>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thoát">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="38.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="893.0" spacing="100.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="2000">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" text="Ca nhiễm quốc gia" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="153.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="53.0" text="2000">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" text="Người cách ly địa phương" />
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
