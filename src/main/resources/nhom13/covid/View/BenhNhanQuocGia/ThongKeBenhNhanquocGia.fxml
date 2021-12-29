@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.BenhNhanQuocGia.ThongKeBenhNhanquocGia">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <BarChart fx:id="thangBarChart" prefHeight="730.0" prefWidth="600.0" title="Thống kê ca nhiễm theo tháng">
+              <xAxis>
+                <NumberAxis label="Số ca mắc" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <CategoryAxis label="Tháng" side="LEFT" tickLabelRotation="90.0" />
+              </yAxis>
+            </BarChart>
+            <BarChart fx:id="tuoiBarChart" prefHeight="730.0" prefWidth="600.0" title="THống kê ca nhiễm theo độ tuổi">
+              <xAxis>
+                <CategoryAxis label="Độ tuổi" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Số ca mắc" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</AnchorPane>
