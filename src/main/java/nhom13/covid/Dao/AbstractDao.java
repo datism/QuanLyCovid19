@@ -13,8 +13,8 @@ import java.util.List;
 public class AbstractDao<T>{
     public Connection getConnection() {
         String db = "Quanlycovid19";
-        String user = "quangmanh";
-        String pass = "quangmanh02";
+        String user = "admin";
+        String pass = "1";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url = "jdbc:sqlserver://localhost:1433;databaseName=" + db + ";user=" + user + ";password=" + pass;

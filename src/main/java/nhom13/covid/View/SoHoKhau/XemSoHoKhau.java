@@ -22,7 +22,6 @@ public class XemSoHoKhau implements Initializable {
     private SoHoKhauDao soHoKhauDao;
     private ObservableList<SoHoKhau> soHoKhauList;
 
-
     @FXML
     private TableView<SoHoKhau> soHoKhauTableView;
 
