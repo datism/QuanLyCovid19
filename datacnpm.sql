@@ -33,7 +33,7 @@ CREATE TABLE NhanKhau
     Noilamviec          NVARCHAR(50)  NULL,
     Ngaydangkithuongtru DATE          NULL,
     Quanhevoichuho      NVARCHAR(20)  NULL,
-    Mahokhau            INT           NULL,
+    Mahokhau            INT           NOT NULL,
     Ghichu              NVARCHAR(MAX) NULL
 )--Thong tin nhan khau
 GO

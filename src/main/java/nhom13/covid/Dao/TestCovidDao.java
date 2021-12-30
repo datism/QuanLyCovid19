@@ -2,7 +2,6 @@ package nhom13.covid.Dao;
 
 import nhom13.covid.Dao.mapper.TestCovidMapper;
 import nhom13.covid.Model.TestCovid;
-
 import java.util.List;
 
 /**

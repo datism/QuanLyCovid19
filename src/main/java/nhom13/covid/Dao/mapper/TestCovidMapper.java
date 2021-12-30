@@ -26,7 +26,6 @@ public class TestCovidMapper implements RowMapper<TestCovid> {
             testCovid.setNgayTest(resultSet.getDate("Ngaytest"));
             return testCovid;
         } catch (SQLException e) {
-            e.printStackTrace();
             return null;
         }
     }

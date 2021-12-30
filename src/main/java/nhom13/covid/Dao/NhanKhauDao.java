@@ -27,6 +27,21 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Chỉnh sửa quan hệ
+     */
+    public List<NhanKhau> getByMaHoKhau(int maHoKhau) {
+        String query = "Select * FROM NhanKhau WHERE Mahokhau = ?";
+        List<NhanKhau> nhanKhauList = super.query(query, new NhanKhauMapper(), maHoKhau);
+        if (nhanKhauList == null || nhanKhauList.isEmpty())
+            return null;
+        else
+            return nhanKhauList;
+    }
+
+    /**
+>>>>>>> 5a4bc9a29cfc57b2ea786cbc34dd2d9541ee9707
      * Chỉnh sửa nhân khẩu
      * @param nhanKhau nhân khẩu
      */
@@ -38,6 +53,25 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Chỉnh sửa quan hệ
+     */
+    public void updateQuanHe(int maNhanKhau, String quanHe) {
+        String query = "UPDATE NhanKhau SET Quanhevoichuho = ? WHERE Manhankhau = ?";
+        super.update(query, quanHe, maNhanKhau);
+    }
+
+    /**
+     * Chỉnh sửa hộ khẩu
+     */
+    public void updateHoKhau(int maHoKhau, int maNhanKhau) {
+        String query = "UPDATE NhanKhau SET Mahokhau = ? WHERE Manhankhau = ?";
+        super.update(query, maHoKhau, maNhanKhau);
+    }
+
+    /**
+>>>>>>> 5a4bc9a29cfc57b2ea786cbc34dd2d9541ee9707
      * Thêm nhân khẩu vào bảng
      * @param nhanKhau không cần mã nhân khẩu
      */
