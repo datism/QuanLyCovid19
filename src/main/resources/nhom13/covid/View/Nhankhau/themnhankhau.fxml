@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.nhankhau.themnhankhauform">
+   <children>
+      <MenuBar prefHeight="32.0" prefWidth="1200.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="413.0" layoutY="56.0" text="Điền thông tin nhân khẩu">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="126.0" text="Họ và tên">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="hoVaTen" layoutX="179.0" layoutY="119.0" promptText="Điền họ và tên">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="583.0" layoutY="126.0" text="Mã hộ khẩu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="maHoKhau" layoutX="749.0" layoutY="119.0" promptText="Điền mã hộ khẩu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="51.0" layoutY="211.0" text="Số CMND hoặc CCCD">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cccd" layoutX="296.0" layoutY="204.0" promptText="Số cmnd/cccd">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="48.0" layoutY="300.0" text="Ngày sinh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="664.0" layoutY="211.0" text="Nơi sinh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="389.0" prefHeight="32.0" prefWidth="69.0" text="Dân tộc">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="583.0" layoutY="300.0" prefHeight="30.0" prefWidth="95.0" text="Tôn giáo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ngaySinh" layoutX="195.0" layoutY="293.0" promptText="Điền ngày sinh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="noiSinh" layoutX="776.0" layoutY="204.0" promptText="Điền nơi sinh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="danToc" layoutX="156.0" layoutY="383.0" promptText="Điền dân tộc">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tonGiao" layoutX="717.0" layoutY="293.0" promptText="Điền tôn giáo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <CheckBox fx:id="Nam" layoutX="223.0" layoutY="483.0" mnemonicParsing="false" text="Nam">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Nu" layoutX="348.0" layoutY="483.0" mnemonicParsing="false" text="Nữ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="53.0" layoutY="571.0" text="Trình độ văn hóa">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="trinhDoVH" layoutX="248.0" layoutY="566.0" promptText="Trinh độ văn hóa">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="558.0" layoutY="571.0" text="Ngày đăng ký thường trú">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ngayDKThuongTru" layoutX="820.0" layoutY="566.0" promptText="Ngày đăng ký thường trú">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="51.0" layoutY="660.0" text="Quan hệ với chủ hộ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="qhChuHo" layoutX="270.0" layoutY="653.0" promptText="Quan hệ với chủ hộ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="577.0" layoutY="660.0" text="Ghi chú">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ghiChu" layoutX="682.0" layoutY="653.0" promptText="Tình trạng ( đã mất/khai sinh)">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="Themnhankhau" layoutX="504.0" layoutY="726.0" mnemonicParsing="false" onAction="#Themnhankhau" text="Gửi thông tin">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="52.0" layoutY="483.0" text="Giới tính">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="633.0" layoutY="483.0" text="Nơi làm việc">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="390.0" prefHeight="30.0" prefWidth="150.0" text="Nghề nghiệp">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ngheNghiep" layoutX="758.0" layoutY="383.0" promptText="Nghề nghiệp">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="noiLamViec" layoutX="792.0" layoutY="476.0" promptText="Nơi làm việc">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

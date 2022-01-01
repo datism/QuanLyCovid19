@@ -167,13 +167,13 @@ public class nhankhauform implements Initializable {
     Button btn2;
 
 
-    public void switchtTothemnhankhau() throws Exception{
+    public void Themnhankhau() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("nhankhau.fxml"));
         Stage window = (Stage) btn1.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 
-    public void switchTosuanhankhau(ActionEvent event)throws Exception{
+    public void Suanhankhau(ActionEvent event)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("suanhankhau.fxml"));
         Stage window = (Stage) btn2.getScene().getWindow();
         window.setScene(new Scene(root));

@@ -40,6 +40,9 @@ public class NhanKhau {
     public NhanKhau() {
     }
 
+    public NhanKhau(String hoVaTen, String cccd, String ngaySinh, String noiSinh, String tonGiao, String gioitinh, String danToc, String trinhDoVH, String ngheNghiep, String noiLamViec, String ngayDKThuongTru, String qhChuHo, int parseInt, String ghiChu) {
+    }
+
     public Integer getMaNhanKhau() {
         return maNhanKhau;
     }
