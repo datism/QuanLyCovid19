@@ -27,21 +27,21 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Chỉnh sửa quan hệ
      */
-    public List<NhanKhau> getByMaHoKhau(int maHoKhau) {
-        String query = "Select * FROM NhanKhau WHERE Mahokhau = ?";
+    public List<NhanKhau> getByMaHoKhau(Integer maHoKhau) {
+        String query;
+        if (maHoKhau == null)
+            query = "Select * FROM NhanKhau WHERE Mahokhau is null";
+        else
+            query = "Select * FROM NhanKhau WHERE Mahokhau = ?";
         List<NhanKhau> nhanKhauList = super.query(query, new NhanKhauMapper(), maHoKhau);
         if (nhanKhauList == null || nhanKhauList.isEmpty())
             return null;
         else
             return nhanKhauList;
     }
-
     /**
->>>>>>> 5a4bc9a29cfc57b2ea786cbc34dd2d9541ee9707
      * Chỉnh sửa nhân khẩu
      * @param nhanKhau nhân khẩu
      */
@@ -53,8 +53,6 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Chỉnh sửa quan hệ
      */
     public void updateQuanHe(int maNhanKhau, String quanHe) {
@@ -65,13 +63,12 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
     /**
      * Chỉnh sửa hộ khẩu
      */
-    public void updateHoKhau(int maHoKhau, int maNhanKhau) {
+    public void updateHoKhau(Integer maHoKhau, Integer maNhanKhau) {
         String query = "UPDATE NhanKhau SET Mahokhau = ? WHERE Manhankhau = ?";
         super.update(query, maHoKhau, maNhanKhau);
     }
 
     /**
->>>>>>> 5a4bc9a29cfc57b2ea786cbc34dd2d9541ee9707
      * Thêm nhân khẩu vào bảng
      * @param nhanKhau không cần mã nhân khẩu
      */
@@ -84,10 +81,7 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
                 nhanKhau.getNoiLamViec(), nhanKhau.getNgayDKThuongTru(), nhanKhau.getQhChuHo(), nhanKhau.getMaHoKhau(), nhanKhau.getGhiChu());
     }
 
-    public void delete(Integer maNhanKhau) {
-        String query = "DELETE FROM NhanKhau WHERE Manhankhau = ?";
-        super.update(query, maNhanKhau);
-    }
+
 
     Integer countAll() {
         String query = "Select count(*) FROM NhanKhau";

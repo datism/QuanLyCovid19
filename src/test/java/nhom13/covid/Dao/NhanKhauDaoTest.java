@@ -26,11 +26,11 @@ class NhanKhauDaoTest {
     @Test
     void update() {
         String newName = "DAT";
-        int maNhanKhau = 2;
-        NhanKhau oNhanKhau= nhanKhauDao.getByMaNhanKhau(2);
+        int maNhanKhau = 3;
+        NhanKhau oNhanKhau= nhanKhauDao.getByMaNhanKhau(maNhanKhau);
         oNhanKhau.setHoVaTen(newName);
         nhanKhauDao.update(oNhanKhau);
-        NhanKhau nNhanKhau= nhanKhauDao.getByMaNhanKhau(2);
+        NhanKhau nNhanKhau= nhanKhauDao.getByMaNhanKhau(maNhanKhau);
         assertEquals(nNhanKhau.getHoVaTen(), oNhanKhau.getHoVaTen());
     }
 
@@ -44,5 +44,14 @@ class NhanKhauDaoTest {
 
     @Test
     void countAll() {
+    }
+
+    @Test
+    void updateHoKhau() {
+        Integer maNhaKhau = 1;
+        Integer maHoKhau = 50;
+        nhanKhauDao.updateHoKhau(maHoKhau, maNhaKhau);
+        NhanKhau  nhanKhau = nhanKhauDao.getByMaNhanKhau(maNhaKhau);
+        assertEquals(nhanKhau.getMaHoKhau(), maHoKhau);
     }
 }

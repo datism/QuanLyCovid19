@@ -1,7 +1,6 @@
 package nhom13.covid.Dao.mapper;
 
 import nhom13.covid.Model.NhanKhau;
-import nhom13.covid.Model.TestCovid;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +27,10 @@ public class NhanKhauMapper implements RowMapper<NhanKhau> {
             nhanKhau.setNoiLamViec(resultSet.getString("Noilamviec"));
             nhanKhau.setNgayDKThuongTru(resultSet.getDate("Ngaydangkithuongtru"));
             nhanKhau.setQhChuHo(resultSet.getString("Quanhevoichuho"));
-            nhanKhau.setMaHoKhau(resultSet.getInt("Mahokhau"));
+
+            Integer mahokhau= resultSet.getInt("Mahokhau");
+            nhanKhau.setMaHoKhau(resultSet.wasNull() ? null : mahokhau);
+
             nhanKhau.setGhiChu(resultSet.getString("Ghichu"));
 
             return nhanKhau;

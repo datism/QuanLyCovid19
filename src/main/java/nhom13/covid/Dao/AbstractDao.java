@@ -109,6 +109,40 @@ public class AbstractDao<T>{
         }
     }
 
+    public Integer insert(String query, Object... parameters) {
+        ResultSet resultSet = null;
+        Integer id = null;
+        Connection connection = null;
+        PreparedStatement prepareStatement = null;
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            prepareStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            setParameter(prepareStatement, parameters);
+            prepareStatement.executeUpdate();
+            resultSet = prepareStatement.getGeneratedKeys();
+            if (resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
+            connection.commit();
+            return id;
+        } catch (SQLException e) {
+            try {
+                //Khôi phục lại thay đổi
+                connection.rollback();
+            } catch (SQLException ignored) {}
+            return null;
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+                if (prepareStatement != null) {
+                    prepareStatement.close();
+                }
+            } catch (SQLException ignored) {}
+        }
+    }
+
     public Integer count(String query, Object... parameters) {
         Connection connection = null;
         PreparedStatement prepareStatement = null;

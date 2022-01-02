@@ -1,6 +1,6 @@
 package nhom13.covid.Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NhanKhau {
     Integer maNhanKhau;

@@ -35,13 +35,18 @@ public class SoHoKhauDao extends AbstractDao<SoHoKhau> {
         super.update(query, soHoKhau.getSoNha(), soHoKhau.getDuongID(), soHoKhau.getChuHo(), soHoKhau.getNgayCap(), soHoKhau.getMaHoKhau());
     }
 
+    public void updateMachuHo(Integer maChuHo, Integer maHoKhau) {
+        String query = "UPDATE Sohokhau SET Chuho WHERE Sohokhau = ?";
+        super.update(query, maChuHo, maHoKhau);
+    }
+
     /**
      * Thêm hộ khẩu vào bảng
      * @param soHoKhau không cần mã hộ khẩu
      */
-    public void insert(SoHoKhau soHoKhau) {
+    public Integer insert(SoHoKhau soHoKhau) {
         String query = "INSERT INTO Sohokhau(Sonha, DuongID, Chuho, Ngaycap) VALUES (?, ?, ?, ?)";
-        super.update(query, soHoKhau.getSoNha(), soHoKhau.getDuongID(), soHoKhau.getChuHo(), soHoKhau.getNgayCap());
+        return super.insert(query, soHoKhau.getSoNha(), soHoKhau.getDuongID(), soHoKhau.getChuHo(), soHoKhau.getNgayCap());
     }
 
     /**

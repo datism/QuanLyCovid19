@@ -6,10 +6,10 @@ public class SoHoKhau {
     Integer maHoKhau;
     String soNha;
     Integer duongID;
-    String chuHo;
+    Integer chuHo;
     Date ngayCap;
 
-    public SoHoKhau(Integer maHoKhau, String soNha, Integer duongID, String chuHo, Date ngayCap) {
+    public SoHoKhau(Integer maHoKhau, String soNha, Integer duongID, Integer chuHo, Date ngayCap) {
         this.maHoKhau = maHoKhau;
         this.soNha = soNha;
         this.duongID = duongID;
@@ -44,11 +44,11 @@ public class SoHoKhau {
         this.duongID = duongID;
     }
 
-    public String getChuHo() {
+    public Integer getChuHo() {
         return chuHo;
     }
 
-    public void setChuHo(String chuHo) {
+    public void setChuHo(Integer chuHo) {
         this.chuHo = chuHo;
     }
 

@@ -6,5 +6,4 @@ open module nhom13.covid {
     requires org.controlsfx.controls;
 
     exports nhom13.covid.View;
-    exports nhom13.covid.View.KhaiBaoYTe;
 }

@@ -1,8 +1,8 @@
 -- Tao database QuanLycovid
-CREATE DATABASE Quanlycovid191
+CREATE DATABASE Quanlycovid19
 GO
 
-USE QuanLycovid191
+USE QuanLycovid19
 GO
 
 --Tao table
@@ -13,7 +13,7 @@ CREATE TABLE Sohokhau
     Mahokhau INT          NOT NULL IDENTITY (1,1),
     Sonha    CHAR(10)     NOT NULL,
     DuongID  INT          NOT NULL,
-    Chuho    NVARCHAR(50) NOT NULL,
+    Chuho    INT          NOT NULL,
     Ngaycap  DATE         NOT NULL
 )
 GO
@@ -23,17 +23,17 @@ CREATE TABLE NhanKhau
     Manhankhau          INT           NOT NULL IDENTITY (1,1),
     Hovaten             NVARCHAR(50)  NOT NULL,
     CCCD                VARCHAR(15)   NOT NULL,
-    Ngaysinh            DATE          NULL,
-    Noisinh             NVARCHAR(50)  NOT NULL,
+    Ngaysinh            DATE          NOT NULL,
+    Noisinh             NVARCHAR(50)  NULL,
     Dantoc              NVARCHAR(30)  NULL,
     Tongiao             NVARCHAR(30)  NULL,
     Gioitinh            BIT           NOT NULL,
     Trinhdovanhoa       NVARCHAR(30)  NULL,
     Nghenghiep          NVARCHAR(50)  NULL,
     Noilamviec          NVARCHAR(50)  NULL,
-    Ngaydangkithuongtru DATE          NULL,
+    Ngaydangkithuongtru DATE          NOT NULL,
     Quanhevoichuho      NVARCHAR(20)  NULL,
-    Mahokhau            INT           NOT NULL,
+    Mahokhau            INT           NULL,
     Ghichu              NVARCHAR(MAX) NULL
 )--Thong tin nhan khau
 GO
@@ -179,6 +179,9 @@ GO
 
 
 -- Foreign key
+ALTER TABLE dbo.Sohokhau
+    ADD CONSTRAINT FK_Sohokhau_Nhankhau FOREIGN KEY (Chuho) REFERENCES dbo.Nhankhau (Manhankhau)
+
 ALTER TABLE dbo.NhanKhau
     ADD CONSTRAINT FK_Nhankhau_Sohokhau FOREIGN KEY (Mahokhau) REFERENCES dbo.Sohokhau (Mahokhau)
 GO

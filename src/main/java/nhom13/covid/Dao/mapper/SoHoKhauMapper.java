@@ -14,7 +14,7 @@ public class SoHoKhauMapper implements RowMapper<SoHoKhau> {
             soHoKhau.setMaHoKhau(resultSet.getInt("Mahokhau"));
             soHoKhau.setSoNha(resultSet.getString("Sonha"));
             soHoKhau.setDuongID(resultSet.getInt("DuongID"));
-            soHoKhau.setChuHo(resultSet.getString("Chuho"));
+            soHoKhau.setChuHo(resultSet.getInt("Chuho"));
             soHoKhau.setNgayCap(resultSet.getDate("Ngaycap"));
             return soHoKhau;
         } catch (SQLException e) {

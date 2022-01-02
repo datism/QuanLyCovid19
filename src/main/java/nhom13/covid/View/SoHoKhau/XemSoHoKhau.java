@@ -85,8 +85,6 @@ public class XemSoHoKhau implements Initializable {
 //        Hiển thị kết quả
         soHoKhauList.setAll(soHoKhauStream.toList());
         soHoKhauTableView.setItems(soHoKhauList);
-
-        System.out.println(soHoKhauList);
     }
 
     @FXML
