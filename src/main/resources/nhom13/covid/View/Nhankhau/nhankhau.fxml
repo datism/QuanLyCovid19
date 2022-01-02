@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onDragDetected="#back" prefHeight="800.0" prefWidth="1326.0" style="-fx-background-color: ;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.nhankhau.nhankhauform">
+   <children>
+      <MenuBar layoutY="-2.0" prefHeight="32.0" prefWidth="1326.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="503.0" layoutY="39.0" text="Thông tin nhân khẩu" textFill="#d30f0f">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="193.0" layoutY="244.0" prefHeight="434.0" prefWidth="1120.0">
+        <columns>
+          <TableColumn fx:id="Manhankhau" prefWidth="90.0" text="Mã nhân khẩu" />
+          <TableColumn fx:id="Hovaten" text="Họ và tên" />
+            <TableColumn fx:id="CCCD" prefWidth="63.0" text="CCCD" />
+            <TableColumn fx:id="Ngaysinh" prefWidth="81.0" text="Ngày sinh" />
+            <TableColumn fx:id="Noisinh" prefWidth="77.0" text="Nơi sinh" />
+            <TableColumn fx:id="Dantoc" prefWidth="59.0" text="Dân tộc" />
+            <TableColumn fx:id="Tongiao" prefWidth="72.0" text="Tôn giáo" />
+            <TableColumn fx:id="Gioitinh" prefWidth="66.0" text="Giới tinh" />
+            <TableColumn fx:id="Trinhdovanhoa" prefWidth="117.0" text="Trình độ văn hóa" />
+            <TableColumn fx:id="Nghenghiep" prefWidth="83.0" text="Nghề nghiệp" />
+            <TableColumn fx:id="Noilamviec" prefWidth="78.0" text="Nơi làm việc" />
+            <TableColumn fx:id="Ngaydangkithuongtru" prefWidth="170.0" text="Ngày đăng ký thường trú" />
+            <TableColumn fx:id="Mahokhau" prefWidth="87.0" text="Mã hộ khẩu" />
+            <TableColumn fx:id="Quanhevoichuho" prefWidth="123.0" text="Quan hệ với chủ hộ" />
+            <TableColumn fx:id="Ghichu" prefWidth="65.0" text="Ghi chú" />
+        </columns>
+      </TableView>
+      <Label layoutX="196.0" layoutY="119.0" text="Họ và tên">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchText" layoutX="311.0" layoutY="112.0" promptText="Điền họ và tên">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="search" layoutX="590.0" layoutY="112.0" mnemonicParsing="false" onAction="#search" text="Tìm kiếm">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn1" layoutX="207.0" layoutY="719.0" mnemonicParsing="false" onAction="#Themnhankhau" prefHeight="44.0" prefWidth="213.0" text="Thêm nhân khẩu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn2" layoutX="458.0" layoutY="719.0" mnemonicParsing="false" onAction="#Suanhankhau" text="Chỉnh sửa nhân khẩu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <VBox layoutY="30.0" prefHeight="770.0" prefWidth="178.0" style="-fx-background-color: #818fa6;" />
+      <Button fx:id="bck" layoutX="1210.0" layoutY="678.0" mnemonicParsing="false" onAction="#back" text="Tải lại">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
