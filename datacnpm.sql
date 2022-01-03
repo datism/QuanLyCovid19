@@ -40,7 +40,7 @@ GO
 
 CREATE TABLE Giaytamvang
 (
-    Magiaytamvang INT          NOT NULL,
+    Magiaytamvang INT          NOT NULL IDENTITY (1,1),
     Manhankhau    INT          NOT NULL,
     Ngaytamvang   DATE         NOT NULL,
     Noidi         NVARCHAR(50) NULL

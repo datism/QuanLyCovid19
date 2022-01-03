@@ -72,11 +72,11 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
      * Thêm nhân khẩu vào bảng
      * @param nhanKhau không cần mã nhân khẩu
      */
-    public void insert(NhanKhau nhanKhau) {
+    public Integer insert(NhanKhau nhanKhau) {
         String query = "INSERT INTO NhanKhau(Hovaten, CCCD, Ngaysinh, Noisinh, Dantoc, Tongiao, Gioitinh, " +
                 "Trinhdovanhoa, Nghenghiep , Noilamviec, Ngaydangkithuongtru, Quanhevoichuho, Mahokhau, Ghichu) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        super.update(query, nhanKhau.getHoVaTen(), nhanKhau.getCccd(), nhanKhau.getNgaySinh(), nhanKhau.getNoiSinh(),
+        return super.insert(query, nhanKhau.getHoVaTen(), nhanKhau.getCccd(), nhanKhau.getNgaySinh(), nhanKhau.getNoiSinh(),
                 nhanKhau.getDanToc(), nhanKhau.getTonGiao(), nhanKhau.getGioiTinh(), nhanKhau.getTrinhDoVH(), nhanKhau.getNgheNghiep(),
                 nhanKhau.getNoiLamViec(), nhanKhau.getNgayDKThuongTru(), nhanKhau.getQhChuHo(), nhanKhau.getMaHoKhau(), nhanKhau.getGhiChu());
     }

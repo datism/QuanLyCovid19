@@ -15,28 +15,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("View/SoHoKhau/ThemHoKhau.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-//        NhanKhauDao nhanKhauDao = new NhanKhauDao();
-//        NhanKhau nhanKhau = nhanKhauDao.getByMaNhanKhau(987400);
-
-//        try {
-//            FXMLLoader loader = new  FXMLLoader(getClass().getResource("View/NhanKhau/FormNhanKhau.fxml"));
-//            FormNhanKhau formNhanKhau = new FormNhanKhau();
-//            loader.setController(formNhanKhau);
-//
-//            Parent root = loader.load();
-//            formNhanKhau.setNhanKhau(nhanKhau);
-//
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
 }

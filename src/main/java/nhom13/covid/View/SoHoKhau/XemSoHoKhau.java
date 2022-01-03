@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -59,7 +58,6 @@ public class XemSoHoKhau implements Initializable {
         ngayCapCol.setCellValueFactory(new PropertyValueFactory<>("ngayCap"));
 
         timKiemBox.getItems().setAll("Mã hộ khẩu", "Số nhà", "Đường", "Tên chủ hộ");
-
     }
 
     @FXML
@@ -87,15 +85,4 @@ public class XemSoHoKhau implements Initializable {
         soHoKhauTableView.setItems(soHoKhauList);
     }
 
-    @FXML
-    private void themClicked(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ThemSoHoKhau/ThemSoHoKhau.fxml"));
-            loader.setController(this);
-            loader.setRoot(this);
-            loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

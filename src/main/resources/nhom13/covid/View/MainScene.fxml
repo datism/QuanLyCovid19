@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.MainScene">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="tongQuanButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Tổng quan">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="38.0" />
+               </padding>
+            </Button>
+            <MenuButton fx:id="themMenu" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thêm">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add-new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <items>
+                  <MenuItem fx:id="themNhanKhauItem" mnemonicParsing="false" onAction="#ThemNhanKhau" text="Nhân khẩu" />
+                  <MenuItem fx:id="themHoKhauItem" mnemonicParsing="false" onAction="#ThemHoKhau" text="Hộ khẩu" />
+                  <MenuItem fx:id="themKhaiBaoYTeItem" mnemonicParsing="false" onAction="#ThemKhaiBaoYTe" text="Khai báo y tế" />
+                  <MenuItem fx:id="themChuyenDenItem" mnemonicParsing="false" onAction="#ThemChuyenDen" text="Phiếu chuyển đến" />
+                  <MenuItem fx:id="themChuyenDiItem" mnemonicParsing="false" onAction="#ThemChuyenDi" text="Phiếu chuyển đi" />
+                  <MenuItem fx:id="themTamTruItem" mnemonicParsing="false" onAction="#ThemTamTru" text="Phiếu tạm trú" />
+                  <MenuItem fx:id="themTamVangItem" mnemonicParsing="false" onAction="#ThemTamVang" text="Phiếu tạm vắng" />
+                  <MenuItem fx:id="themThayDoiChuHoItem" mnemonicParsing="false" onAction="#ThemThayDoiChuHo" text="Phiếu thay đổi chủ hộ" />
+                  <MenuItem fx:id="themTestCovidItem" mnemonicParsing="false" onAction="#ThemTestCovid" text="Test covid" />
+               </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </MenuButton>
+            <MenuButton alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Xem/Tra cứu" fx:id="xemMenu">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/information-sign.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#XemNhanKhau" text="Nhân khẩu" fx:id="xemNhanKhauItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemHoKhau" text="Hộ khẩu" fx:id="xemHoKhauItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemChuyenDen" text="Phiếu chuyển đến" fx:id="xemChuyenDenItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemChuyenDi" text="Phiếu chuyển đi" fx:id="xemChuyenDiItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemTamTru" text="Phiếu tạm trú" fx:id="xemTamTruItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemTamVang" text="Phiếu tạm vắng" fx:id="xemTamVangItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemThayDoiChuHo" text="Phiếu thay đổi chủ hộ" fx:id="xemThayDoiChuHoItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemKhaiBaoYTe" text="Khai báo y tế" fx:id="xemKhaiBaoYTeItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemTestCovid" text="Test covid" fx:id="xemTestCovidItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemBenhNhanQuocGia" text="Bệnh nhân quốc gia" fx:id="xemBenhNhanQuocGiaItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#XemCachLyDiaPHuong" text="Cách ly địa phương" fx:id="xemCachLyDiaPhuongItem" />
+               </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </MenuButton>
+            <MenuButton fx:id="thongKeMenu" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="268.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thống kê">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/calculator.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <items>
+                  <MenuItem fx:id="thongKeTestCovidItem" mnemonicParsing="false" onAction="#ThongKeTestCovid" text="Test covid" />
+                  <MenuItem fx:id="thongKeBenhNhanQuocGiaItem" mnemonicParsing="false" onAction="#ThongKeBenhNhanQuocGia" text="Bệnh nhân quốc gia" />
+                  <MenuItem fx:id="thongKeCachLyDiaPhuongItem" mnemonicParsing="false" onAction="#ThongKeCachLyDiaPhuong" text="Cách ly địa phương" />
+                  <MenuItem fx:id="thongKeKhaiBaoYTeItem" mnemonicParsing="false" onAction="#ThongKeKhaiBaoYTe" text="Khai báo y tế" />
+               </items>
+            </MenuButton>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Thoát">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="38.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0" />
+   </children>
+</HBox>
