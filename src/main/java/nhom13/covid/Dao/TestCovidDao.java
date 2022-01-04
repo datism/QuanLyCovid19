@@ -33,5 +33,8 @@ public class TestCovidDao extends AbstractDao<TestCovid> {
         super.update(query, maNhanKhau);
     }
 
-
+    public Integer countAll() {
+        String query = "Select count(*) FROM Thongtintestcovid";
+        return super.count(query);
+    }
 }

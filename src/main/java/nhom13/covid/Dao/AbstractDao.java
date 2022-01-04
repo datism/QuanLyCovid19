@@ -11,7 +11,7 @@ import java.util.List;
  * @param <T>
  */
 public class AbstractDao<T>{
-    public Connection getConnection() {
+    private Connection getConnection() {
         String db = "Quanlycovid19";
         String user = "admin";
         String pass = "1";
@@ -42,7 +42,7 @@ public class AbstractDao<T>{
         } catch (SQLException ignored) {}
     }
 
-    public List<T> query(String query, RowMapper<T> rowMapper, Object... parameters) {
+    protected List<T> query(String query, RowMapper<T> rowMapper, Object... parameters) {
         List<T> results = new ArrayList<>();
         Connection connection = null;
         PreparedStatement prepareStatement = null;
@@ -76,7 +76,7 @@ public class AbstractDao<T>{
         }
     }
 
-    public void update(String query, Object... parameters) {
+    protected void update(String query, Object... parameters) {
         Connection connection = null;
         PreparedStatement prepareStatement = null;
         try {
@@ -109,7 +109,7 @@ public class AbstractDao<T>{
         }
     }
 
-    public Integer insert(String query, Object... parameters) {
+    protected Integer insert(String query, Object... parameters) {
         ResultSet resultSet = null;
         Integer id = null;
         Connection connection = null;
@@ -143,7 +143,7 @@ public class AbstractDao<T>{
         }
     }
 
-    public Integer count(String query, Object... parameters) {
+    protected Integer count(String query, Object... parameters) {
         Connection connection = null;
         PreparedStatement prepareStatement = null;
         ResultSet resultSet = null;

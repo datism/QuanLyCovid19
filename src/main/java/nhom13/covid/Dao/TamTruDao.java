@@ -15,4 +15,9 @@ public class TamTruDao extends AbstractDao<TamTru> {
         String query = "INSERT INTO Giaytamtru(Mahokhau, Diachithuongtru, Manhankhau, Ngaytamtru, Thoihan) VALUES (?, ?, ?, ?, ?)";
         super.update(query, tamTru.getMaHoKhau(), tamTru.getDcThuongTru(), tamTru.getMaNhanKhau(), tamTru.getNgayThuongTru(), tamTru.getThoiHan());
     }
+
+    public Integer countAll() {
+        String query = "Select count(*) FROM Giaytamtru";
+        return super.count(query);
+    }
 }

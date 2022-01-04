@@ -15,4 +15,9 @@ public class CachLyDao extends AbstractDao<CachLy> {
         String query = "Select count(*) FROM Nguoicachly WHERE Mucdocachly_F = ?";
         return super.count(query, mucDo);
     }
+
+    public Integer countAll() {
+        String query = "Select count(*) FROM Nguoicachly";
+        return super.count(query);
+    }
 }

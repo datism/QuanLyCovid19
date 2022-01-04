@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onDragDetected="#back" prefHeight="770.0" prefWidth="1220.0" style="-fx-background-color: ;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.NhanKhau.XemNhanKhau">
+<AnchorPane onDragDetected="#back" prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: ;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.NhanKhau.XemNhanKhau">
    <children>
       <Label layoutX="468.0" layoutY="14.0" text="Thông tin nhân khẩu" textFill="#d30f0f" AnchorPane.topAnchor="0.0">
          <font>

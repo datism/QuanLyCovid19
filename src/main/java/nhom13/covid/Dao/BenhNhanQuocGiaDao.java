@@ -8,4 +8,9 @@ public class BenhNhanQuocGiaDao extends AbstractDao<BenhNhanQuocGia> {
         String query = "Select * FROM Benhnhancovidquocgia";
         return super.query(query, new BenhNhanQuocGiaMapper());
     }
+
+    public Integer countAll() {
+        String query = "Select count(*) FROM Benhnhancovidquocgia";
+        return super.count(query);
+    }
 }

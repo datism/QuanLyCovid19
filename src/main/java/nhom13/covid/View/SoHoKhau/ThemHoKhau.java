@@ -1,174 +1,97 @@
 package nhom13.covid.View.SoHoKhau;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.TreeItem;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
-import nhom13.covid.Dao.NhanKhauDao;
-import nhom13.covid.Dao.SoHoKhauDao;
-import nhom13.covid.Model.NhanKhau;
-import nhom13.covid.Model.SoHoKhau;
-import org.controlsfx.control.BreadCrumbBar;
-import org.controlsfx.control.Notifications;
+import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 
-public class ThemHoKhau implements Initializable {
+public class ThemHoKhau extends AnchorPane {
+    @FXML
+    private TextField maChuHo;
 
     @FXML
-    protected BreadCrumbBar<String> breadBar;
+    private TextField soDuong;
 
     @FXML
-    protected AnchorPane servicePane;
+    private TextField soNha;
 
     @FXML
-    protected Button button1;
+    private DatePicker ngayCap;
 
-    @FXML
-    protected Button button2;
+   private ValidationSupport validation;
 
-    protected NhanKhauDao nhanKhauDao;
-    protected SoHoKhauDao hoKhauDao;
 
-    SoHoKhau soHoKhau;
-    private FormHoKhau formHoKhau;
-    protected ThemNkVaoHk themNkVaoHk;
-
-    protected TreeItem<String> item1;
-    protected TreeItem<String> item2;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        nhanKhauDao = new NhanKhauDao();
-        hoKhauDao = new SoHoKhauDao();
-        soHoKhau = new SoHoKhau();
-        formHoKhau = new FormHoKhau();
-        initBreadBar();
-        startThongTinHoKhau();
-    }
-
-    void initBreadBar() {
-        item1 = new TreeItem<>("Thông tin hộ khẩu");
-        item2 = new TreeItem<>("Thêm nhân khẩu");
-        item1.getChildren().add(item2);
-
-        breadBar.setOnCrumbAction(event -> {
-            TreeItem<String> item = event.getSelectedCrumb();
-            if (item.equals(item1))
-                startThongTinHoKhau();
-            else if (item.equals(item2))
-                startThemNhanKhau();
-        });
-    }
-
-    boolean checkHokhau() {
-        ValidationSupport validation = formHoKhau.getValidation();
-
-        if (validation.isInvalid()) {
-            Notifications.create()
-                    .title("Lỗi!")
-                    .text("Điền lại thông tin.")
-                    .position(Pos.TOP_RIGHT)
-                    .hideAfter(Duration.seconds(5))
-                    .showError();
-            return false;
+    public ThemHoKhau() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ThemHoKhau.fxml"));
+            loader.setController(this);
+            loader.setRoot(this);
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        NhanKhau chuHo = nhanKhauDao.getByMaNhanKhau(formHoKhau.getMaChuHo());
-        if (chuHo == null) {
-            Notifications.create()
-                    .title("Lỗi!")
-                    .text("Chủ hộ không tồn tại")
-                    .position(Pos.TOP_RIGHT)
-                    .hideAfter(Duration.seconds(5))
-                    .showError();
-            return false;
-        }
-        if (chuHo.getMaHoKhau() != null) {
-            Notifications.create()
-                    .title("Lỗi!")
-                    .text("Chủ hộ đã có hộ khẩu")
-                    .position(Pos.TOP_RIGHT)
-                    .hideAfter(Duration.seconds(5))
-                    .showError();
-            return false;
-        }
+        validation = new ValidationSupport();
 
-        return true;
+        validation.registerValidator(maChuHo, Validator.createRegexValidator("Mã chủ hộ phải là số nguyên dương", "\\d*", Severity.ERROR));
+        validation.registerValidator(soDuong, Validator.createRegexValidator("Số đường là số nguyên dương", "\\d*", Severity.ERROR));
+        validation.registerValidator(soNha, Validator.createEmptyValidator("Số nhà không được để trống"));
+        validation.registerValidator(ngayCap, Validator.createEmptyValidator("Ngày cấp không được để trống"));
     }
 
-    void startThongTinHoKhau() {
-        servicePane.getChildren().setAll(formHoKhau);
-        breadBar.setSelectedCrumb(item1);
-
-        button1.setVisible(false);
-        button2.setVisible(true);
-        button2.setText("Tiếp tục");
-        button2.setOnAction(event -> {
-            if (!checkHokhau())
-                return;
-
-            soHoKhau.setChuHo(formHoKhau.getMaChuHo());
-            soHoKhau.setSoNha(formHoKhau.getSoNha());
-            soHoKhau.setDuongID(formHoKhau.getSoDuong());
-            soHoKhau.setNgayCap(formHoKhau.getNgayCap());
-
-            startThemNhanKhau();
-        });
+    public ValidationSupport getValidation() {
+        return validation;
     }
 
-    void startThemNhanKhau() {
-        List<NhanKhau> nhanKhauList = nhanKhauDao.getByMaHoKhau(null);
-        breadBar.setSelectedCrumb(item2);
+    StringProperty maChuHoProperty() {
+        return maChuHo.textProperty();
+    }
 
-        Integer maChuHo = soHoKhau.getChuHo();
-        for (NhanKhau nhakhau : nhanKhauList) {
-            if (nhakhau.getMaNhanKhau().equals(maChuHo)) {
-                nhanKhauList.remove(nhakhau);
-                break;
-            }
+    StringProperty soNhaProperty() {
+        return soNha.textProperty();
+    }
+
+    StringProperty soDuongProperty() {
+        return soDuong.textProperty();
+    }
+
+    ObjectProperty<LocalDate> ngayCapProperty() {
+        return ngayCap.valueProperty();
+    }
+
+    public Integer getMaChuHo() {
+        try {
+            return Integer.valueOf(maChuHoProperty().get());
+        } catch (NumberFormatException e) {
+            return null;
         }
-
-        themNkVaoHk = new ThemNkVaoHk(nhanKhauList);
-        servicePane.getChildren().setAll(themNkVaoHk);
-
-        button1.setVisible(true);
-        button1.setText("Quay lại");
-        button1.setOnAction(event -> {
-            startThongTinHoKhau();
-        });
-
-        button2.setVisible(true);
-        button2.setText("Hoàn thành");
-        button2.setOnAction(event -> {
-            Integer maHoKhau = hoKhauDao.insert(soHoKhau);
-            if (maHoKhau == null) {
-                Notifications.create()
-                        .title("Lỗi!")
-                        .text("Lỗi hệ thống")
-                        .position(Pos.TOP_RIGHT)
-                        .hideAfter(Duration.seconds(5))
-                        .showError();
-                return;
-            }
-
-            List<NhanKhau> nNhanKhau = themNkVaoHk.getListNhanKhauMoiThem();
-
-            for (NhanKhau nhanKhau: nNhanKhau) {
-                nhanKhau.setMaHoKhau(maHoKhau);
-                nhanKhauDao.update(nhanKhau);
-            }
-
-            nhanKhauDao.updateHoKhau(maHoKhau, maChuHo);
-
-            formHoKhau = new FormHoKhau();
-            startThongTinHoKhau();
-        });
     }
+
+    public String getSoNha() {
+        return soNhaProperty().get();
+    }
+
+    public Integer getSoDuong() {
+        try {
+            return Integer.valueOf(soDuongProperty().get());
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    public Date getNgayCap() {
+        return Date.valueOf(ngayCapProperty().get());
+    }
+
+
 }

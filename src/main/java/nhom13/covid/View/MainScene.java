@@ -9,8 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import nhom13.covid.Model.Account;
+import nhom13.covid.Model.UserHolder;
+import nhom13.covid.View.SoHoKhau.Tach;
+import nhom13.covid.View.SoHoKhau.Them;
 import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
@@ -18,9 +23,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainScene implements Initializable {
+    @FXML
+    private VBox menuVbox;
 
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private MenuItem TachHoKhauItem;
 
     @FXML
     private MenuItem themThayDoiChuHoItem;
@@ -107,10 +117,13 @@ public class MainScene implements Initializable {
     private MenuItem xemThayDoiChuHoItem;
 
     @FXML
-    void ThemThayDoiChuHo(ActionEvent event) {
+    void TachHoKhau(ActionEvent event) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("ThayDoiChuHo/ThemThayDoiChuHo.fxml"));
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("SoHoKhau/StepScene.fxml"));
+            loader.setController(new Tach());
+            AnchorPane pane = loader.load();
             anchorPane.getChildren().setAll(pane);
+
         } catch (IOException e) {
             Notifications.create()
                     .title("Lỗi!")
@@ -120,6 +133,7 @@ public class MainScene implements Initializable {
                     .showError();
         }
     }
+
 
     @FXML
     void ThemChuyenDen(ActionEvent event) {
@@ -153,17 +167,21 @@ public class MainScene implements Initializable {
 
     @FXML
     void ThemHoKhau(ActionEvent event) {
-//        try {
-//            AnchorPane pane = FXMLLoader.load(getClass().getResource("ThayDoiChuHo/ThemThayDoiChuHo.fxml"));
-//            anchorPane.getChildren().setAll(pane);
-//        } catch (IOException e) {
-//            Notifications.create()
-//                    .title("Lỗi!")
-//                    .text("Lỗi hệ thống")
-//                    .position(Pos.TOP_RIGHT)
-//                    .hideAfter(Duration.seconds(5))
-//                    .showError();
-//        }
+        try {
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("SoHoKhau/StepScene.fxml"));
+            loader.setController(new Them());
+            AnchorPane pane = loader.load();
+            anchorPane.getChildren().setAll(pane);
+
+        } catch (IOException e) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Lỗi hệ thống")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -461,23 +479,74 @@ public class MainScene implements Initializable {
         }
     }
 
-    @FXML
-    void XemThayDoiChuHo(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("ThayDoiChuHo/XemThayDoiChuHo.fxml"));
-            anchorPane.getChildren().setAll(pane);
-        } catch (IOException e) {
-            Notifications.create()
-                    .title("Lỗi!")
-                    .text("Lỗi hệ thống")
-                    .position(Pos.TOP_RIGHT)
-                    .hideAfter(Duration.seconds(5))
-                    .showError();
-        }
-    }
+    private Account account;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        account = UserHolder.getInstance().getUser();
 
+        Integer access = account.getAccess();
+
+        switch (access){
+            case 1: userScene(); break;
+            case 2: yTeScene(); break;
+            case 3: toTruongScene(); break;
+        }
+
+        tongQuanButton.fire();
+    }
+
+    private void userScene() {
+        tongQuanButton.setOnAction(event -> {
+            try {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("UserTongQuan.fxml"));
+                anchorPane.getChildren().setAll(pane);
+            } catch (IOException e) {
+                Notifications.create()
+                        .title("Lỗi!")
+                        .text("Lỗi hệ thống")
+                        .position(Pos.TOP_RIGHT)
+                        .hideAfter(Duration.seconds(5))
+                        .showError();
+            }
+        });
+        themMenu.getItems().removeAll(themNhanKhauItem, themHoKhauItem, TachHoKhauItem, themTestCovidItem);
+        xemMenu.getItems().retainAll(xemBenhNhanQuocGiaItem, xemCachLyDiaPhuongItem);
+        menuVbox.getChildren().remove(thongKeMenu);
+    }
+
+    private void toTruongScene() {
+        tongQuanButton.setOnAction(event -> {
+            try {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("ToTruongTongQuan.fxml"));
+                anchorPane.getChildren().setAll(pane);
+            } catch (IOException e) {
+                Notifications.create()
+                        .title("Lỗi!")
+                        .text("Lỗi hệ thống")
+                        .position(Pos.TOP_RIGHT)
+                        .hideAfter(Duration.seconds(5))
+                        .showError();
+            }
+        });
+        themMenu.getItems().retainAll(themNhanKhauItem, themHoKhauItem, themTestCovidItem, TachHoKhauItem);
+    }
+
+    private void yTeScene() {
+        tongQuanButton.setOnAction(event -> {
+            try {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("YTeTongQuan.fxml"));
+                anchorPane.getChildren().setAll(pane);
+            } catch (IOException e) {
+                Notifications.create()
+                        .title("Lỗi!")
+                        .text("Lỗi hệ thống")
+                        .position(Pos.TOP_RIGHT)
+                        .hideAfter(Duration.seconds(5))
+                        .showError();
+            }
+        });
+        themMenu.getItems().retainAll(themTestCovidItem);
+        xemMenu.getItems().retainAll(xemKhaiBaoYTeItem, xemTestCovidItem, xemBenhNhanQuocGiaItem, xemCachLyDiaPhuongItem);
     }
 }

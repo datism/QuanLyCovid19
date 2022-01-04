@@ -1,31 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import org.controlsfx.control.BreadCrumbBar?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="770.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.SoHoKhau.Tach">
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+<fx:root prefHeight="620.0" prefWidth="1160.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="373.0" layoutY="142.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" fillWidth="false" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BreadCrumbBar fx:id="breadBar" prefHeight="30.0" />
-            <AnchorPane fx:id="servicePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="620.0" prefWidth="1180.0" />
-            <HBox prefHeight="40.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="button1" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="button2" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" />
-               </children>
-            </HBox>
+            <Label prefHeight="32.0" prefWidth="617.0" text="THÔNG TIN HỘ KHẨU">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <GridPane alignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="621.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" percentWidth="20.0" prefWidth="76.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" percentWidth="80.0" prefWidth="314.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="142.0" minHeight="10.0" percentHeight="25.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="191.0" minHeight="10.0" percentHeight="25.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="153.0" minHeight="10.0" percentHeight="25.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="111.0" minHeight="10.0" percentHeight="25.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <TextField fx:id="maChuHo" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                  </TextField>
+                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="79.0" prefWidth="173.0" text="Mã chủ hộ:">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="132.0" prefWidth="133.0" text="Số nhà:" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="soNha" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                  </TextField>
+                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="124.0" prefWidth="173.0" text="Số đường:" GridPane.rowIndex="2">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="soDuong" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                  </TextField>
+                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="65.0" prefWidth="386.0" text="Ngày cấp:" GridPane.rowIndex="3">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="ngayCap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </children>
+            </GridPane>
          </children>
       </VBox>
    </children>
-</AnchorPane>
+</fx:root>

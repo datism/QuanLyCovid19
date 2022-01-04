@@ -6,16 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import nhom13.covid.Dao.NhanKhauDao;
 import nhom13.covid.Dao.SoHoKhauDao;
 import nhom13.covid.Model.NhanKhau;
 import nhom13.covid.Model.SoHoKhau;
-import org.controlsfx.control.PopOver;
 import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
@@ -88,7 +88,7 @@ public class TachHoKhau extends AnchorPane {
 
     private ValidationSupport validation;
 
-    private PopOver popOver;
+    //private PopOver popOver;
 
     public TachHoKhau() {
         try {
@@ -111,7 +111,7 @@ public class TachHoKhau extends AnchorPane {
         validation.registerValidator(soNhaText, Validator.createEmptyValidator("Số nhà không được để trống"));
         validation.registerValidator(ngayCapText, Validator.createEmptyValidator("Ngày cấp không được để trống"));
 
-        initPopOver();
+        //initPopOver();
         initHoKhauTable();
         initNhanKhauTable();
     }
@@ -148,48 +148,48 @@ public class TachHoKhau extends AnchorPane {
 
         nhanKhauTable.setItems(nhanKhauList);
 
-        nhanKhauTable.setOnMouseClicked(event -> {
-            popOver.show(nhanKhauTable);
-        });
+//        nhanKhauTable.setOnMouseClicked(event -> {
+//            popOver.show(nhanKhauTable);
+//        });
     }
 
-    void initPopOver() {
-        VBox vBox = new VBox();
-        vBox.setFillWidth(true);
-        vBox.paddingProperty().set(new Insets(2.0, 2.0, 2.0, 2.0));
-        vBox.setSpacing(5.0);
-
-        Button chuHoCuButton = new Button("Chủ hộ cũ");
-        chuHoCuButton.setOnAction(event -> {
-            NhanKhau nhanKhau = nhanKhauTable.getSelectionModel().getSelectedItem();
-
-            if (nhanKhau == null)
-                return;
-
-            maChuHoCu.setText(nhanKhau.getMaNhanKhau().toString());
-        });
-
-        Button chuHoMoiButton = new Button("Chủ hộ mới");
-        chuHoMoiButton.setOnAction(event -> {
-            NhanKhau nhanKhau = nhanKhauTable.getSelectionModel().getSelectedItem();
-
-            if (nhanKhau == null)
-                return;
-
-            maChuHoMoi.setText(nhanKhau.getMaNhanKhau().toString());
-        });
-
-        vBox.getChildren().setAll(chuHoCuButton, chuHoMoiButton);
-
-        popOver = new PopOver(vBox);
-    }
+//    void initPopOver() {
+//        VBox vBox = new VBox();
+//        vBox.setFillWidth(true);
+//        vBox.paddingProperty().set(new Insets(2.0, 2.0, 2.0, 2.0));
+//        vBox.setSpacing(5.0);
+//
+//        Button chuHoCuButton = new Button("Chủ hộ cũ");
+//        chuHoCuButton.setOnAction(event -> {
+//            NhanKhau nhanKhau = nhanKhauTable.getSelectionModel().getSelectedItem();
+//
+//            if (nhanKhau == null)
+//                return;
+//
+//            maChuHoCu.setText(nhanKhau.getMaNhanKhau().toString());
+//        });
+//
+//        Button chuHoMoiButton = new Button("Chủ hộ mới");
+//        chuHoMoiButton.setOnAction(event -> {
+//            NhanKhau nhanKhau = nhanKhauTable.getSelectionModel().getSelectedItem();
+//
+//            if (nhanKhau == null)
+//                return;
+//
+//            maChuHoMoi.setText(nhanKhau.getMaNhanKhau().toString());
+//        });
+//
+//        vBox.getChildren().setAll(chuHoCuButton, chuHoMoiButton);
+//
+//        popOver = new PopOver(vBox);
+//    }
 
     public ValidationSupport getValidation() {
         return validation;
     }
 
     StringProperty maChuHoCuProperty() {
-        return maChuHoMoi.textProperty();
+        return maChuHoCu.textProperty();
     }
 
     StringProperty maChuHoMoiProperty() {

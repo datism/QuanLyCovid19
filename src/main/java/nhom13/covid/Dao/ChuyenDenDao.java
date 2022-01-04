@@ -27,4 +27,8 @@ public class ChuyenDenDao extends AbstractDao<ChuyenDen> {
         super.update(query, maPhieuChuyenDen);
     }
 
+    public Integer countAll() {
+        String query = "Select count(*) FROM PhieuChuyenDen";
+        return super.count(query);
+    }
 }

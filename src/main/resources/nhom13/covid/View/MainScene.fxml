@@ -12,7 +12,7 @@
 
 <HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.MainScene">
    <children>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
+      <VBox fx:id="menuVbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="761.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: #818fa6;">
          <children>
             <ImageView fitHeight="160.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="tongQuanButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" style="-fx-background-color: #818fa6;" text="Tổng quan">
@@ -46,8 +46,8 @@
                   <MenuItem fx:id="themChuyenDiItem" mnemonicParsing="false" onAction="#ThemChuyenDi" text="Phiếu chuyển đi" />
                   <MenuItem fx:id="themTamTruItem" mnemonicParsing="false" onAction="#ThemTamTru" text="Phiếu tạm trú" />
                   <MenuItem fx:id="themTamVangItem" mnemonicParsing="false" onAction="#ThemTamVang" text="Phiếu tạm vắng" />
-                  <MenuItem fx:id="themThayDoiChuHoItem" mnemonicParsing="false" onAction="#ThemThayDoiChuHo" text="Phiếu thay đổi chủ hộ" />
                   <MenuItem fx:id="themTestCovidItem" mnemonicParsing="false" onAction="#ThemTestCovid" text="Test covid" />
+                  <MenuItem fx:id="TachHoKhauItem" mnemonicParsing="false" onAction="#TachHoKhau" text="Tách hộ khẩu" />
                </items>
                <opaqueInsets>
                   <Insets />
@@ -71,7 +71,6 @@
                   <MenuItem mnemonicParsing="false" onAction="#XemChuyenDi" text="Phiếu chuyển đi" fx:id="xemChuyenDiItem" />
                   <MenuItem mnemonicParsing="false" onAction="#XemTamTru" text="Phiếu tạm trú" fx:id="xemTamTruItem" />
                   <MenuItem mnemonicParsing="false" onAction="#XemTamVang" text="Phiếu tạm vắng" fx:id="xemTamVangItem" />
-                  <MenuItem mnemonicParsing="false" onAction="#XemThayDoiChuHo" text="Phiếu thay đổi chủ hộ" fx:id="xemThayDoiChuHoItem" />
                   <MenuItem mnemonicParsing="false" onAction="#XemKhaiBaoYTe" text="Khai báo y tế" fx:id="xemKhaiBaoYTeItem" />
                   <MenuItem mnemonicParsing="false" onAction="#XemTestCovid" text="Test covid" fx:id="xemTestCovidItem" />
                   <MenuItem mnemonicParsing="false" onAction="#XemBenhNhanQuocGia" text="Bệnh nhân quốc gia" fx:id="xemBenhNhanQuocGiaItem" />

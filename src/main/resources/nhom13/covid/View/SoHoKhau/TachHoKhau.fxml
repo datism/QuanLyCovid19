@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="620.0" prefWidth="1180.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="620.0" prefWidth="1160.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TableView fx:id="hoKhauTable" layoutX="78.0" layoutY="86.0" prefHeight="251.0" prefWidth="573.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
@@ -33,7 +33,7 @@
             <TableColumn fx:id="qhChuHoCol" prefWidth="159.0" text="Quan hệ chủ hộ" />
          </columns>
       </TableView>
-      <VBox alignment="CENTER" layoutY="411.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutY="411.0" prefHeight="620.0" prefWidth="535.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="30.0" prefWidth="566.0">
                <children>

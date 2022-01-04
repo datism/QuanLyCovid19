@@ -81,9 +81,7 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
                 nhanKhau.getNoiLamViec(), nhanKhau.getNgayDKThuongTru(), nhanKhau.getQhChuHo(), nhanKhau.getMaHoKhau(), nhanKhau.getGhiChu());
     }
 
-
-
-    Integer countAll() {
+    public Integer countAll() {
         String query = "Select count(*) FROM NhanKhau";
         return super.count(query);
     }

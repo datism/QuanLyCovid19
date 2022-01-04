@@ -25,4 +25,9 @@ public class ChuyenDiDao extends AbstractDao<ChuyenDi> {
         String query = "DELETE FROM PhieuChuyenDi WHERE Maphieuchuyendi = ?";
         super.update(query, maPhieuChuyenDi);
     }
+
+    public Integer countAll() {
+        String query = "Select count(*) FROM PhieuChuyenDi";
+        return super.count(query);
+    }
 }

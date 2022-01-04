@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.ToTruongTongQuan">
+   <children>
+      <HBox alignment="CENTER" layoutX="20.0" layoutY="277.0" prefHeight="200.0" prefWidth="1096.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="khaiBaoYTe" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="khaiBaoYTe" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Khai báo y tế">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="testCovid" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="testCovid" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Xét nghiệm covid">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="cachLy" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="cachLyDiaPhuong" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Cách ly địa phương">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="71.0" layoutY="50.0" prefHeight="200.0" prefWidth="1096.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="nhanKhau" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="nhankhau" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Nhân khẩu">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="hoKhau" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="hokhau" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Sổ hộ khẩu">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="104.0" layoutY="495.0" prefHeight="200.0" prefWidth="1096.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="chuyenDi" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="chuyenDi" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Phiếu chuyển đi">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="chuyenDen" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="chuyenDen" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Phiếu chuyển đến">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="tamTru" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="tamTru" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Tạm trú">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="tamVang" alignment="CENTER" prefHeight="92.0" prefWidth="115.0" text="tamVang" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label text="Tạm vặng">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</AnchorPane>

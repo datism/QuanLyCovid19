@@ -54,6 +54,7 @@ public class XemSoHoKhau implements Initializable {
 
         maHoKhauCol.setCellValueFactory(new PropertyValueFactory<>("maHoKhau"));
         soNhaCol.setCellValueFactory(new PropertyValueFactory<>("soNha"));
+        duongCol.setCellValueFactory(new PropertyValueFactory<>("duongID"));
         tenChuHoCol.setCellValueFactory(new PropertyValueFactory<>("chuHo"));
         ngayCapCol.setCellValueFactory(new PropertyValueFactory<>("ngayCap"));
 

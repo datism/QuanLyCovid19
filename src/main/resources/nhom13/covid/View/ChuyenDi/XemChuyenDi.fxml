@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.ChuyenDi.XemChuyenDi">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nhom13.covid.View.ChuyenDi.XemChuyenDi">
    <children>
       <HBox AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -17,36 +24,36 @@
             <Button mnemonicParsing="false" onAction="#timKiemButtonCLicked" prefHeight="25.0" prefWidth="54.0" text="Tìm" />
          </children>
       </HBox>
-      <VBox alignment="BOTTOM_CENTER" layoutY="189.0" prefHeight="650.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <VBox layoutX="40.0" layoutY="189.0" prefHeight="650.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
          <children>
             <Pane prefHeight="49.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button layoutX="629.0" layoutY="4.0" mnemonicParsing="false" onAction="#taiLaiClicked" text="Tải lại" />
+                  <Button layoutX="553.0" layoutY="2.0" mnemonicParsing="false" onAction="#taiLaiClicked" text="Tải lại" />
                </children>
             </Pane>
-            <TableView fx:id="chuyenDiTable" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0">
+            <TableView fx:id="chuyenDiTable" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="600.0">
                <columns>
-                  <TableColumn fx:id="maPhieuCol" prefWidth="120.0" text="Mã Phiếu" />
-                  <TableColumn fx:id="maNhanKhauCol" prefWidth="127.0" text="Mã Nhân Khẩu" />
-                  <TableColumn fx:id="noiChuyenDenCol" prefWidth="258.0" text="Nơi Ở Mới" />
-                  <TableColumn fx:id="lyDoCol" prefWidth="193.0" text=" Lý Do Chuyển Đi" />
+                  <TableColumn fx:id="maPhieuCol" prefWidth="88.0" text="Mã Phiếu" />
+                  <TableColumn fx:id="maNhanKhauCol" prefWidth="117.0" text="Mã Nhân Khẩu" />
+                  <TableColumn fx:id="noiChuyenDenCol" prefWidth="169.0" text="Nơi Ở Mới" />
+                  <TableColumn fx:id="lyDoCol" prefWidth="225.0" text=" Lý Do Chuyển Đi" />
                </columns>
             </TableView>
          </children>
       </VBox>
-      <VBox fx:id="chiTietVbox" alignment="TOP_CENTER" layoutX="706.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox fx:id="chiTietVbox" alignment="CENTER" layoutX="706.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="235.0" text="Thông tin chuyển đi">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <GridPane fx:id="formChuyenDi" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0">
+            <GridPane fx:id="formChuyenDi" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
             </GridPane>
-            <Pane prefHeight="81.0" prefWidth="350.0" />
+            <Pane prefHeight="100.0" prefWidth="500.0" />
             <HBox>
                <children>
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#xoaButonClicked" prefHeight="40.0" prefWidth="90.0" text="Xóa" />

@@ -16,48 +16,49 @@ import org.controlsfx.control.Notifications;
 import org.controlsfx.validation.ValidationSupport;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class Tach implements Initializable {
+public class Them implements Initializable {
 
     @FXML
-    private BreadCrumbBar<String> breadBar;
+    protected BreadCrumbBar<String> breadBar;
 
     @FXML
-    private AnchorPane servicePane;
+    protected AnchorPane servicePane;
 
     @FXML
-    private Button button1;
+    protected Button button1;
 
     @FXML
-    private Button button2;
+    protected Button button2;
 
-    private NhanKhauDao nhanKhauDao;
-    private SoHoKhauDao hoKhauDao;
+    protected NhanKhauDao nhanKhauDao;
+    protected SoHoKhauDao hoKhauDao;
 
-    private TachHoKhau tachHokhau;
-    private ThemNkVaoHk themNkVaoHk;
+    private ThemHoKhau themHoKhau;
+    protected ThemNkVaoHk themNkVaoHk;
 
-    private TreeItem<String> item1;
-    private TreeItem<String> item2;
-
-    private NhanKhau chuHoMoi;
-    private NhanKhau chuHoCu;
+    protected TreeItem<String> item1;
+    protected TreeItem<String> item2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nhanKhauDao = new NhanKhauDao();
         hoKhauDao = new SoHoKhauDao();
-        tachHokhau = new TachHoKhau();
+        themHoKhau = new ThemHoKhau();
+
         themNkVaoHk = new ThemNkVaoHk();
+        themNkVaoHk.setSourceLabel("Nhân khẩu chưa có hộ khẩu");
+        themNkVaoHk.removeQhChuCu();
+
+
         initBreadBar();
         startThongTinHoKhau();
     }
 
     void initBreadBar() {
-        item1 = new TreeItem<>("Thông tin hộ khẩu");
+        item1 = new TreeItem<>("Thông tin hộ khẩu mới");
         item2 = new TreeItem<>("Thêm nhân khẩu");
         item1.getChildren().add(item2);
 
@@ -71,7 +72,7 @@ public class Tach implements Initializable {
     }
 
     boolean checkHokhau() {
-        ValidationSupport validation = tachHokhau.getValidation();
+        ValidationSupport validation = themHoKhau.getValidation();
 
         if (validation.isInvalid()) {
             Notifications.create()
@@ -83,27 +84,8 @@ public class Tach implements Initializable {
             return false;
         }
 
-        Integer maChuHoMoi = tachHokhau.getMaChuHoMoi();
-        Integer maCHuHoCu = tachHokhau.getMaChuHoCu();
-
-        if (maCHuHoCu.equals(maChuHoMoi)) {
-            Notifications.create()
-                    .title("Lỗi!")
-                    .text("Chủ hộ cũ không được giống chủ hộ mới")
-                    .position(Pos.TOP_RIGHT)
-                    .hideAfter(Duration.seconds(5))
-                    .showError();
-            return false;
-        }
-
-
-        chuHoMoi = nhanKhauDao.getByMaNhanKhau(maChuHoMoi);
-        chuHoCu = nhanKhauDao.getByMaNhanKhau(maCHuHoCu);
-        Integer maHoKhauCu = tachHokhau.getMaHoKhauCu();
-
-
-
-        if (chuHoMoi == null || chuHoCu == null) {
+        NhanKhau chuHo = nhanKhauDao.getByMaNhanKhau(themHoKhau.getMaChuHo());
+        if (chuHo == null) {
             Notifications.create()
                     .title("Lỗi!")
                     .text("Chủ hộ không tồn tại")
@@ -112,11 +94,10 @@ public class Tach implements Initializable {
                     .showError();
             return false;
         }
-
-        if (!chuHoMoi.getMaHoKhau().equals(maHoKhauCu) || !chuHoCu.getMaHoKhau().equals(maHoKhauCu)) {
+        if (chuHo.getMaHoKhau() != null) {
             Notifications.create()
                     .title("Lỗi!")
-                    .text("Chủ hộ không thuộc hộ khẩu đã chọn")
+                    .text("Chủ hộ đã có hộ khẩu")
                     .position(Pos.TOP_RIGHT)
                     .hideAfter(Duration.seconds(5))
                     .showError();
@@ -127,42 +108,31 @@ public class Tach implements Initializable {
     }
 
     void startThongTinHoKhau() {
-        servicePane.getChildren().setAll(tachHokhau);
+        servicePane.getChildren().setAll(themHoKhau);
         breadBar.setSelectedCrumb(item1);
 
         button1.setVisible(false);
         button2.setVisible(true);
         button2.setText("Tiếp tục");
-
         button2.setOnAction(event -> {
-            if (!checkHokhau()) {
-                chuHoCu = null;
-                chuHoMoi = null;
+            if (!checkHokhau())
                 return;
-            }
-
             startThemNhanKhau();
         });
     }
 
     void startThemNhanKhau() {
+        List<NhanKhau> nhanKhauList = nhanKhauDao.getByMaHoKhau(null);
         breadBar.setSelectedCrumb(item2);
 
-        List<NhanKhau> nhanKhauList = new ArrayList<>(tachHokhau.getNhanKhauList());
-        nhanKhauList.removeIf(nhanKhau -> {
-            Integer maNhanKhau = nhanKhau.getMaNhanKhau();
-            return maNhanKhau.equals(chuHoCu.getMaNhanKhau()) || maNhanKhau.equals(chuHoMoi.getMaNhanKhau());
-        });
+        Integer maChuHo = themHoKhau.getMaChuHo();
+        for (NhanKhau nhakhau : nhanKhauList) {
+            if (nhakhau.getMaNhanKhau().equals(maChuHo)) {
+                nhanKhauList.remove(nhakhau);
+                break;
+            }
+        }
 
-//        for (int i = 0; i < nhanKhauList.size(); i++) {
-//            NhanKhau khau = nhanKhauList.get(i);
-//            Integer maNhanKhau = khau.getMaNhanKhau();
-//            if (maNhanKhau.equals(chuHoCu.getMaNhanKhau()) || maNhanKhau.equals(chuHoMoi.getMaNhanKhau())) {
-//                nhanKhauList.remove(khau);
-//            }
-//        }
-
-        themNkVaoHk.setSourceLabel("Nhân khẩu trong hộ khẩu cũ");
         themNkVaoHk.setSourceList(nhanKhauList);
 
         servicePane.getChildren().setAll(themNkVaoHk);
@@ -177,12 +147,13 @@ public class Tach implements Initializable {
         button2.setText("Hoàn thành");
         button2.setOnAction(event -> {
             SoHoKhau soHoKhau = new SoHoKhau();
-            soHoKhau.setSoNha(tachHokhau.getSoNha());
-            soHoKhau.setDuongID(tachHokhau.getSoDuong());
-            soHoKhau.setChuHo(tachHokhau.getMaChuHoMoi());
-            soHoKhau.setNgayCap(tachHokhau.getNgayCap());
+            soHoKhau.setChuHo(themHoKhau.getMaChuHo());
+            soHoKhau.setSoNha(themHoKhau.getSoNha());
+            soHoKhau.setDuongID(themHoKhau.getSoDuong());
+            soHoKhau.setNgayCap(themHoKhau.getNgayCap());
 
             Integer maHoKhau = hoKhauDao.insert(soHoKhau);
+
             if (maHoKhau == null) {
                 Notifications.create()
                         .title("Lỗi!")
@@ -194,25 +165,15 @@ public class Tach implements Initializable {
             }
 
             List<NhanKhau> nNhanKhau = themNkVaoHk.getListNhanKhauMoiThem();
-            List<NhanKhau> oNhanKhau = themNkVaoHk.getListNhanKhauCu();
-
-            for (NhanKhau nhanKhau: nNhanKhau) {
-                nhanKhauDao.update(nhanKhau);
-            }
 
             for (NhanKhau nhanKhau: nNhanKhau) {
                 nhanKhau.setMaHoKhau(maHoKhau);
                 nhanKhauDao.update(nhanKhau);
             }
 
-            chuHoCu.setQhChuHo(null);
-            chuHoMoi.setQhChuHo(null);
-            chuHoMoi.setMaHoKhau(soHoKhau.getMaHoKhau());
+            nhanKhauDao.updateHoKhau(maHoKhau, maChuHo);
 
-            nhanKhauDao.update(chuHoCu);
-            nhanKhauDao.update(chuHoMoi);
-
-            tachHokhau = new TachHoKhau();
+            themHoKhau = new ThemHoKhau();
             startThongTinHoKhau();
         });
     }

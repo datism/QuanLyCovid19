@@ -58,7 +58,7 @@ public class SoHoKhauDao extends AbstractDao<SoHoKhau> {
         super.update(query, maHoKhau);
     }
 
-    Integer countAll() {
+    public Integer countAll() {
         String query = "Select count(*) FROM Sohokhau";
         return super.count(query);
     }
