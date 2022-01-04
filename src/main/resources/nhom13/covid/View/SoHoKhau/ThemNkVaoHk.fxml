@@ -59,7 +59,7 @@
             </TableView>
          </children>
       </GridPane>
-      <Label layoutX="659.0" layoutY="72.0" prefHeight="29.0" prefWidth="260.0" text="Nhân khẩu thuộc hộ khẩu mới">
+      <Label layoutX="613.0" layoutY="72.0" prefHeight="29.0" prefWidth="260.0" text="Nhân khẩu thuộc hộ khẩu mới">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>

@@ -51,19 +51,6 @@
                </columnConstraints>
             </GridPane>
             <Pane prefHeight="81.0" prefWidth="350.0" />
-            <HBox>
-               <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#xoaButonClicked" prefHeight="40.0" prefWidth="90.0" text="Xóa" />
-                  <Pane HBox.hgrow="ALWAYS" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#suaButtonClicked" prefHeight="40.0" prefWidth="90.0" text="Sửa" />
-               </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
          </children>
       </VBox>
    </children>
