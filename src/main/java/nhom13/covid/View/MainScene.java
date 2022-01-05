@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -469,6 +471,27 @@ public class MainScene implements Initializable {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("TestCovid/XemTestCovid.fxml"));
             anchorPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Lỗi hệ thống")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+        }
+    }
+
+    @FXML
+    void LogOut(ActionEvent event) {
+        try {
+            Stage stage = (Stage) anchorPane.getScene().getWindow();
+            FXMLLoader loader = new  FXMLLoader(getClass().getResource("Login.fxml"));
+
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             Notifications.create()
                     .title("Lỗi!")

@@ -16,6 +16,8 @@ import org.controlsfx.control.Notifications;
 import org.controlsfx.validation.ValidationSupport;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -98,6 +100,27 @@ public class Them implements Initializable {
             Notifications.create()
                     .title("Lỗi!")
                     .text("Chủ hộ đã có hộ khẩu")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return false;
+        }
+
+        Period tuoiChuHo = Period.between(chuHo.getNgaySinh().toLocalDate(), LocalDate.now());
+        if (tuoiChuHo.getYears() < 18) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Chủ hộ phải trên 18 tuổi")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return false;
+        }
+
+        if (chuHo.getGhiChu() != null && chuHo.getGhiChu().contains("đã mất")) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Chủ hộ phải còn sống")
                     .position(Pos.TOP_RIGHT)
                     .hideAfter(Duration.seconds(5))
                     .showError();

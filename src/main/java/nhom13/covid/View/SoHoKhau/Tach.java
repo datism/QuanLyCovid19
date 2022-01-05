@@ -16,6 +16,8 @@ import org.controlsfx.control.Notifications;
 import org.controlsfx.validation.ValidationSupport;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -117,6 +119,31 @@ public class Tach implements Initializable {
             Notifications.create()
                     .title("Lỗi!")
                     .text("Chủ hộ không thuộc hộ khẩu đã chọn")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return false;
+        }
+
+
+        Period tuoiChuHoMoi = Period.between(chuHoMoi.getNgaySinh().toLocalDate(), LocalDate.now());
+        Period tuoiChuHoCu = Period.between(chuHoCu.getNgaySinh().toLocalDate(), LocalDate.now());
+
+        if (tuoiChuHoCu.getYears() < 18 || tuoiChuHoMoi.getYears() < 18) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Chủ hộ phải trên 18 tuổi")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return false;
+        }
+
+        if ((chuHoMoi.getGhiChu() != null &&  chuHoMoi.getGhiChu().contains("đã mất")) ||
+                (chuHoCu.getGhiChu() != null && chuHoCu.getGhiChu().contains("đã mất"))) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Chủ hộ phải còn sống")
                     .position(Pos.TOP_RIGHT)
                     .hideAfter(Duration.seconds(5))
                     .showError();
