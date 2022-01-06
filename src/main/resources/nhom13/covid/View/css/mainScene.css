@@ -53,6 +53,16 @@
     -fx-background-color: -fx-my-menu-color-highlighted;
 }
 
+.menuButton:hover,
+.menuButton:pressed {
+    -fx-background-color: -fx-my-menu-color-highlighted;
+}
+
+.menuButton:hover > .label,
+.menuButton:pressed > .label {
+    -fx-text-fill: -fx-my-menu-font-color-highlighted;
+}
+
 /*** Top-level menu's label (selected / hovered) ***/
 .menu-button:hover > .label,
 .menu-button:focused > .label,

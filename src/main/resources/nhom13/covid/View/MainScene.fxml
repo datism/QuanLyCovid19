@@ -28,7 +28,7 @@
                   <Insets bottom="20.0" top="20.0" />
                </padding>
             </VBox>
-            <Button fx:id="tongQuanButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" styleClass="sideMenu" stylesheets="@css/mainScene.css" text="Tổng quan">
+            <Button fx:id="tongQuanButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="289.0" stylesheets="@css/mainScene.css" text="Tổng quan">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,6 +45,10 @@
                <font>
                   <Font size="15.0" />
                </font>
+               <styleClass>
+                  <String fx:value="sideMenu" />
+                  <String fx:value="menuButton" />
+               </styleClass>
             </Button>
             <MenuButton fx:id="themMenu" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="49.0" prefWidth="289.0" styleClass="sideMenu" stylesheets="@css/mainScene.css" text="Thêm">
                <graphic>
@@ -129,7 +133,7 @@
                   <Font size="15.0" />
                </font>
             </MenuButton>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="49.0" prefWidth="289.0" styleClass="sideMenu" stylesheets="@css/mainScene.css" text="Đăng xuất">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="49.0" prefWidth="289.0" stylesheets="@css/mainScene.css" text="Đăng xuất">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -146,8 +150,12 @@
                <font>
                   <Font size="15.0" />
                </font>
+               <styleClass>
+                  <String fx:value="sideMenu" />
+                  <String fx:value="menuButton" />
+               </styleClass>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="49.0" prefWidth="289.0" styleClass="sideMenu" stylesheets="@css/mainScene.css" text="Thoát">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="49.0" prefWidth="289.0" stylesheets="@css/mainScene.css" text="Thoát">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -164,6 +172,10 @@
                <font>
                   <Font size="15.0" />
                </font>
+               <styleClass>
+                  <String fx:value="sideMenu" />
+                  <String fx:value="menuButton" />
+               </styleClass>
             </Button>
          </children>
          <HBox.margin>
