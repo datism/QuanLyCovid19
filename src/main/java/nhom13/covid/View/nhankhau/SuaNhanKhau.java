@@ -62,6 +62,8 @@ public class SuaNhanKhau implements Initializable {
     private SoHoKhauDao hoKhauDao;
 
     SuaNhanKhau(NhanKhau iNhanKhau) {
+        nhanKhauDao = new NhanKhauDao();
+        hoKhauDao = new SoHoKhauDao();
         formNhanKhau = new FormNhanKhau();
         formNhanKhau.setNhanKhau(iNhanKhau);
     }

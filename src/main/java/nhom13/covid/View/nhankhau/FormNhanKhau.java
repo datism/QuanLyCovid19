@@ -261,7 +261,9 @@ public class FormNhanKhau extends AnchorPane {
     }
 
     public void setMaHoKhau(Integer maHoKhau) {
-        maHoKhauProperty().setValue(maHoKhau.toString());
+        if (maHoKhau != null)
+            maHoKhauProperty().setValue(maHoKhau.toString());
+        maHoKhauProperty().set(null);
     }
 
     public Date getNgayDkThuongTru() {
