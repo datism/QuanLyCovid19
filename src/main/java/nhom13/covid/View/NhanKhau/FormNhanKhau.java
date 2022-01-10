@@ -84,7 +84,7 @@ public class FormNhanKhau extends AnchorPane {
         validate.registerValidator(ngaySinh, Validator.createEmptyValidator("Phải chọn ngày sinh"));
         validate.registerValidator(ngayDkThuongTru, Validator.createEmptyValidator("Phải chọn ngày đăng ký"));
         validate.registerValidator(gioiTinh, Validator.createEmptyValidator("Phải chọn giới tính"));
-        validate.registerValidator(maHoKhau, Validator.createRegexValidator("Mã hộ khẩu phải là số dương (có thể bỏ trống)", "\\d*", Severity.ERROR));
+        validate.registerValidator(maHoKhau, Validator.createRegexValidator("Mã hộ khẩu phải là số dương (có thể bỏ trống)", "[0-9]*", Severity.ERROR));
     }
 
     void initGioiTinh() {
@@ -264,7 +264,7 @@ public class FormNhanKhau extends AnchorPane {
         if (maHoKhau != null)
             maHoKhauProperty().setValue(maHoKhau.toString());
         else
-            maHoKhauProperty().set(null);
+            maHoKhauProperty().set("");
     }
 
     public Date getNgayDkThuongTru() {

@@ -37,19 +37,21 @@ public class SuaNhanKhau implements Initializable {
 
         NhanKhau nhanKhau = formNhanKhau.getNhanKhau();
         if (nhanKhau.getMaNhanKhau() != null)
-            if(hoKhauDao.getByMaHoKhau(nhanKhau.getMaHoKhau()) == null) {
-                Notifications.create()
-                        .title("Lỗi!")
-                        .text("Mã hộ khẩu không tồn tại.")
-                        .position(Pos.TOP_RIGHT)
-                        .hideAfter(Duration.seconds(5))
-                        .showError();
-                return;
+            if (nhanKhau.getMaHoKhau() != null)
+                if(hoKhauDao.getByMaHoKhau(nhanKhau.getMaHoKhau()) == null) {
+                    Notifications.create()
+                            .title("Lỗi!")
+                            .text("Mã hộ khẩu không tồn tại.")
+                            .position(Pos.TOP_RIGHT)
+                            .hideAfter(Duration.seconds(5))
+                            .showError();
+                    return;
             }
 
+        nhanKhauDao.update(nhanKhau);
         Notifications.create()
                 .title("Thành công")
-                .text("Thêm nhân khẩu thành công")
+                .text("Sửa nhân khẩu thành công")
                 .position(Pos.TOP_RIGHT)
                 .hideAfter(Duration.seconds(5))
                 .showConfirm();

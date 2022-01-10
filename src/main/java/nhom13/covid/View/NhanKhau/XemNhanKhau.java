@@ -195,7 +195,7 @@ public class XemNhanKhau implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
+            
             stage.setOnCloseRequest(windowEvent -> {
                 this.list1.setAll(nhankhauDao.getAll());
                 table.refresh();
