@@ -47,6 +47,10 @@ public class XemNhanKhau implements Initializable {
     @FXML
     private TableColumn<NhanKhau, Date> Ngaydangkithuongtru;
     @FXML
+    private TableColumn<NhanKhau, String> Nghenghiep;
+    @FXML
+    private TableColumn<NhanKhau, String> Noilamviec;
+    @FXML
     private TableColumn<NhanKhau, Integer> Mahokhau;
     @FXML
     private TableColumn<NhanKhau, String> Quanhevoichuho;
@@ -85,7 +89,8 @@ public class XemNhanKhau implements Initializable {
             return Gioitinh;
         });
 
-
+        Nghenghiep.setCellValueFactory(new PropertyValueFactory<>("ngheNghiep"));
+        Noilamviec.setCellValueFactory(new PropertyValueFactory<>("noiLamViec"));
         Trinhdovanhoa.setCellValueFactory(new PropertyValueFactory<>("trinhDoVH"));
         Ngaydangkithuongtru.setCellValueFactory(new PropertyValueFactory<>("ngayDKThuongTru"));
         Mahokhau.setCellValueFactory(new PropertyValueFactory<>("maHoKhau"));
