@@ -103,11 +103,13 @@ public class TachHoKhau extends AnchorPane {
         hoKhauDao = new SoHoKhauDao();
         nhanKhauDao = new NhanKhauDao();
 
+        maChuHoCu.setEditable(false);
+
         validation = new ValidationSupport();
 
         validation.registerValidator(maChuHoCu, Validator.createRegexValidator("Mã chủ hộ phải là số nguyên dương", "\\d+", Severity.ERROR));
-        validation.registerValidator(maChuHoMoi, Validator.createRegexValidator("Mã chủ hộ phải là số nguyên dương", "\\d*", Severity.ERROR));
-        validation.registerValidator(soDuongText, Validator.createRegexValidator("Số đường là số nguyên dương", "\\d*", Severity.ERROR));
+        validation.registerValidator(maChuHoMoi, Validator.createRegexValidator("Mã chủ hộ phải là số nguyên dương", "\\d+", Severity.ERROR));
+        validation.registerValidator(soDuongText, Validator.createRegexValidator("Số đường là số nguyên dương", "\\d+", Severity.ERROR));
         validation.registerValidator(soNhaText, Validator.createEmptyValidator("Số nhà không được để trống"));
         validation.registerValidator(ngayCapText, Validator.createEmptyValidator("Ngày cấp không được để trống"));
 
@@ -132,8 +134,12 @@ public class TachHoKhau extends AnchorPane {
             nhanKhauList.setAll(nhanKhauDao.getByMaHoKhau(hoKhau.getMaHoKhau()));
             nhanKhauTable.refresh();
 
+            maChuHoCu.setText(hoKhau.getChuHo().toString());
+
             maChuHoMoi.clear();
-            maChuHoCu.clear();
+            soDuongText.clear();
+            soNhaText.clear();
+            ngayCapText.setValue(null);
         });
     }
 

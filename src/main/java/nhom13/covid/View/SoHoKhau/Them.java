@@ -52,7 +52,7 @@ public class Them implements Initializable {
 
         themNkVaoHk = new ThemNkVaoHk();
         themNkVaoHk.setSourceLabel("Nhân khẩu chưa có hộ khẩu");
-        themNkVaoHk.removeQhChuCu();
+//        themNkVaoHk.removeQhChuCu();
 
 
         initBreadBar();

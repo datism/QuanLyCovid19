@@ -203,6 +203,7 @@ public class Tach implements Initializable {
         button2.setVisible(true);
         button2.setText("Hoàn thành");
         button2.setOnAction(event -> {
+
             SoHoKhau soHoKhau = new SoHoKhau();
             soHoKhau.setSoNha(tachHokhau.getSoNha());
             soHoKhau.setDuongID(tachHokhau.getSoDuong());
@@ -210,6 +211,7 @@ public class Tach implements Initializable {
             soHoKhau.setNgayCap(tachHokhau.getNgayCap());
 
             Integer maHoKhau = hoKhauDao.insert(soHoKhau);
+
             if (maHoKhau == null) {
                 Notifications.create()
                         .title("Lỗi!")
@@ -221,22 +223,15 @@ public class Tach implements Initializable {
             }
 
             List<NhanKhau> nNhanKhau = themNkVaoHk.getListNhanKhauMoiThem();
-            List<NhanKhau> oNhanKhau = themNkVaoHk.getListNhanKhauCu();
-
-            for (NhanKhau nhanKhau: nNhanKhau) {
-                nhanKhauDao.update(nhanKhau);
-            }
 
             for (NhanKhau nhanKhau: nNhanKhau) {
                 nhanKhau.setMaHoKhau(maHoKhau);
                 nhanKhauDao.update(nhanKhau);
             }
 
-            chuHoCu.setQhChuHo(null);
             chuHoMoi.setQhChuHo(null);
-            chuHoMoi.setMaHoKhau(soHoKhau.getMaHoKhau());
+            chuHoMoi.setMaHoKhau(maHoKhau);
 
-            nhanKhauDao.update(chuHoCu);
             nhanKhauDao.update(chuHoMoi);
 
             tachHokhau = new TachHoKhau();

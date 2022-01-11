@@ -52,8 +52,8 @@ public class ThemNkVaoHk extends AnchorPane {
     @FXML
     private TableColumn<NhanKhau, String> qhChuHoMoi;
 
-    @FXML
-    private TableColumn<NhanKhau, String> qhChuHoCu;
+//    @FXML
+//    private TableColumn<NhanKhau, String> qhChuHoCu;
 
     @FXML
     private Label sourceLabel;
@@ -106,12 +106,13 @@ public class ThemNkVaoHk extends AnchorPane {
         hovaten1.setCellValueFactory(new PropertyValueFactory<>("hoVaTen"));
         cccd1.setCellValueFactory(new PropertyValueFactory<>("cccd"));
         ngaySinh1.setCellValueFactory(new PropertyValueFactory<>("ngaySinh"));
-        qhChuHoCu.setCellValueFactory(new PropertyValueFactory<>("qhChuHo"));
-        qhChuHoCu.setCellFactory(TextFieldTableCell.forTableColumn());
-        qhChuHoCu.setOnEditCommit(event -> {
-            NhanKhau nhanKhau = event.getTableView().getItems().get(event.getTablePosition().getRow());
-            nhanKhau.setQhChuHo(event.getNewValue());
-        });
+
+//        qhChuHoCu.setCellValueFactory(new PropertyValueFactory<>("qhChuHo"));
+//        qhChuHoCu.setCellFactory(TextFieldTableCell.forTableColumn());
+//        qhChuHoCu.setOnEditCommit(event -> {
+//            NhanKhau nhanKhau = event.getTableView().getItems().get(event.getTablePosition().getRow());
+//            nhanKhau.setQhChuHo(event.getNewValue());
+//        });
 
         maNhanKhau2.setCellValueFactory(new PropertyValueFactory<>("maNhanKhau"));
         hovaten2.setCellValueFactory(new PropertyValueFactory<>("hoVaTen"));
@@ -148,7 +149,7 @@ public class ThemNkVaoHk extends AnchorPane {
 
     List<NhanKhau> getListNhanKhauCu() { return  nhanKhauList1.stream().toList(); }
 
-    void removeQhChuCu() {
-        this.nhanKhauTableView1.getColumns().remove(qhChuHoCu);
-    }
+//    void removeQhChuCu() {
+//        this.nhanKhauTableView1.getColumns().remove(qhChuHoCu);
+//    }
 }
