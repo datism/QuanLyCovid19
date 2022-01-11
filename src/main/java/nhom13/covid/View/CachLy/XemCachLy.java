@@ -6,18 +6,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Duration;
 import javafx.util.StringConverter;
-import javafx.util.converter.FormatStringConverter;
 import nhom13.covid.Dao.CachLyDao;
 import nhom13.covid.Model.CachLy;
-import nhom13.covid.Model.TestCovid;
-import nhom13.covid.View.TestCovid.FormTestCovid;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
@@ -111,7 +107,7 @@ public class XemCachLy implements Initializable {
         String timKiem = timKiemTextField.getText();
         //Lấy thuộc tính cần tìm kiếm theo
         String timKiemTheo = timKiemChoiceBox.getValue();
-        if (timKiemTheo == null)
+        if (timKiemTheo == null || timKiem.equals(""))
             return;
 
         Stream<CachLy> stream = cachLyDao.getAll().stream();
@@ -124,9 +120,18 @@ public class XemCachLy implements Initializable {
             case "Khu vực cách ly" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getKvCachLy()));
         }
 
-        //Hiển thị kết quả
-        cachLyList.setAll(stream.toList());
-        cachLyTable.setItems(cachLyList);
+        try {
+            //Hiển thị kết quả
+            cachLyList.setAll(stream.toList());
+            cachLyTable.setItems(cachLyList);
+        } catch (NumberFormatException e) {
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text(timKiemTheo + " phải là số nguyên")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+        }
     }
 
     private CachLyDao cachLyDao;

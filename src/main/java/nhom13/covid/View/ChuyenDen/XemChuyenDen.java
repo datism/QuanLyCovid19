@@ -20,6 +20,7 @@ import org.controlsfx.validation.ValidationSupport;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class XemChuyenDen implements Initializable {
@@ -59,7 +60,7 @@ public class XemChuyenDen implements Initializable {
         String timKiem = timKiemTextField.getText();
         //Lấy thuộc tính cần tìm kiếm theo
         String timKiemTheo = timKiemChoiceBox.getValue();
-        if (timKiemTheo == null)
+        if (timKiemTheo == null || timKiem.equals(""))
             return;
 
         Stream<ChuyenDen> stream = chuyenDenDao.getAll().stream();
@@ -67,13 +68,22 @@ public class XemChuyenDen implements Initializable {
         //Truy vấn db lấy kết quả
         switch (timKiemTheo) {
             case "Mã Phiếu" -> stream = stream.filter(chuyenDen -> Integer.valueOf(timKiem).equals(chuyenDen.getMaChuyenDen()));
-            case "Mã nhân khẩu" -> stream = stream.filter(chuyenDen -> Integer.valueOf(timKiem).equals(chuyenDen.getMaNhanKhau()));
+            case "Mã Nhân Khẩu" -> stream = stream.filter(chuyenDen -> Integer.valueOf(timKiem).equals(chuyenDen.getMaNhanKhau()));
 
         }
 
-        //Hiển thị kết quả
-        chuyenDenList.setAll(stream.toList());
-        chuyenDenTable.setItems(chuyenDenList);
+        try {
+            //Hiển thị kết quả
+            chuyenDenList.setAll(stream.toList());
+            chuyenDenTable.setItems(chuyenDenList);
+        } catch (NumberFormatException e) {
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text(timKiemTheo + " phải là số nguyên")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+        }
     }
 
     @FXML
@@ -165,11 +175,11 @@ public class XemChuyenDen implements Initializable {
             //Thiết lập gợi ý
             switch (nV) {
                 case "Mã Phiếu" -> goiY = TextFields.bindAutoCompletion(timKiemTextField,
-                        chuyenDenList.stream().map(chuyenDen -> chuyenDen.getMaNhanKhau().toString()).toList());
+                        chuyenDenList.stream().map(chuyenDen -> chuyenDen.getMaChuyenDen().toString()).collect(Collectors.toSet()));
 
 
-                case "Mã nhân khẩu" -> goiY = TextFields.bindAutoCompletion(timKiemTextField,
-                        chuyenDenList.stream().map(chuyenDen -> chuyenDen.getMaNhanKhau().toString()).toList());
+                case "Mã Nhân Khẩu" -> goiY = TextFields.bindAutoCompletion(timKiemTextField,
+                        chuyenDenList.stream().map(chuyenDen -> chuyenDen.getMaNhanKhau().toString()).collect(Collectors.toSet()));
 
 
             }

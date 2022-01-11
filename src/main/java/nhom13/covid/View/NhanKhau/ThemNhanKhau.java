@@ -36,6 +36,16 @@ public class ThemNhanKhau implements Initializable {
             return;
         }
 
+        if (nhanKhauDao.getByCanCuoc(formNhanKhau.getCanCuocCongDan()) != null) {
+            Notifications.create()
+                    .title("Lỗi!")
+                    .text("Trùng căn cước công dân")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+            return;
+        }
+
         NhanKhau nhanKhau = formNhanKhau.getNhanKhau();
         if (nhanKhau.getMaNhanKhau() != null)
             if(soHoKhauDao.getByMaHoKhau(nhanKhau.getMaHoKhau()) == null) {

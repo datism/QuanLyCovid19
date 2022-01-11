@@ -18,7 +18,7 @@
             <TableColumn fx:id="maHoKhauCol" minWidth="0.0" prefWidth="106.0" text="Mã hộ khẩu" />
             <TableColumn fx:id="soNhaCol" prefWidth="187.0" text="Số nhà" />
             <TableColumn fx:id="duongCol" prefWidth="269.0" text="Đường" />
-            <TableColumn fx:id="tenChuHoCol" prefWidth="272.0" text="Tên chủ hộ" />
+            <TableColumn fx:id="tenChuHoCol" prefWidth="272.0" text="Mã chủ hộ" />
             <TableColumn fx:id="ngayCapCol" prefWidth="345.0" text="Ngày cấp" />
          </columns>
       </TableView>
@@ -30,7 +30,7 @@
       <HBox layoutX="402.0" layoutY="68.0" prefHeight="27.0" prefWidth="417.0" spacing="5.0">
          <children>
             <ChoiceBox fx:id="timKiemBox" prefHeight="25.0" prefWidth="120.0" />
-            <TextField HBox.hgrow="ALWAYS" />
+            <TextField fx:id="timKiemTextField" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#timKiemClicked" text="Tìm kiếm">
                <font>
                   <Font size="13.0" />

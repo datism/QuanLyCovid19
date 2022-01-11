@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,8 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import nhom13.covid.Dao.TamVangDao;
 import nhom13.covid.Model.TamVang;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
@@ -56,7 +59,7 @@ public class XemTamVang implements Initializable {
 		String timKiem = timKiemTextField.getText();
 		//Lấy thuộc tính cần tìm tiếp theo
 		String timKiemTheo = timKiemChoiceBox.getValue();
-		if (timKiemTheo == null) 
+		if (timKiemTheo == null || timKiem.equals(""))
 			return;
 		
 		Stream<TamVang> stream = tamVangDao.getAll().stream();
@@ -66,10 +69,19 @@ public class XemTamVang implements Initializable {
 			case "Mã Phiếu" -> stream = stream .filter(TamVang -> Integer.valueOf(timKiem).equals(TamVang.getMaTamVang()));
 			case "Mã Nhân Khẩu" -> stream = stream .filter(TamVang -> Integer.valueOf(timKiem).equals(TamVang.getMaNhanKhau()));
 		}
-		
-		//Hiển thị kết quả
-		tamVangList.setAll(stream.toList());
-		tamVangTable.setItems(tamVangList);
+
+		try {
+			//Hiển thị kết quả
+			tamVangList.setAll(stream.toList());
+			tamVangTable.setItems(tamVangList);
+		} catch (NumberFormatException e) {
+			Notifications.create()
+					.title("Lỗi input")
+					.text(timKiemTheo + " phải là số nguyên")
+					.position(Pos.TOP_RIGHT)
+					.hideAfter(Duration.seconds(5))
+					.showError();
+		}
 	}
 	
 	@FXML

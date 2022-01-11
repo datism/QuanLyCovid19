@@ -71,22 +71,32 @@ public class XemTestCovid implements Initializable {
         String timKiem = timKiemTextField.getText();
         //Lấy thuộc tính cần tìm kiếm theo
         String timKiemTheo = timKiemChoiceBox.getValue();
-        if (timKiemTheo == null)
+        if (timKiemTheo == null || timKiem.equals(""))
             return;
 
         Stream<TestCovid> stream = testCovidDao.getAll().stream();
 
-        //Truy vấn db lấy kết quả
-        switch (timKiemTheo) {
-            case "Họ và tên" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getHoVaTen()));
-            case "Căn cước công dân" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getCccd()));
-            case "Mã nhân khẩu" -> stream = stream.filter(testCovid -> Integer.valueOf(timKiem).equals(testCovid.getMaNhanKhau()));
-            case "Số điện thoại" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getSoDt()));
-        }
 
-        //Hiển thị kết quả
-        testCovidList.setAll(stream.toList());
-        testCovidTable.setItems(testCovidList);
+            //Truy vấn db lấy kết quả
+            switch (timKiemTheo) {
+                case "Họ và tên" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getHoVaTen()));
+                case "Căn cước công dân" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getCccd()));
+                case "Mã nhân khẩu" -> stream = stream.filter(testCovid -> Integer.valueOf(timKiem).equals(testCovid.getMaNhanKhau()));
+                case "Số điện thoại" -> stream = stream.filter(testCovid -> timKiem.equals(testCovid.getSoDt()));
+            }
+
+        try {
+            //Hiển thị kết quả
+            testCovidList.setAll(stream.toList());
+            testCovidTable.setItems(testCovidList);
+        } catch (NumberFormatException e) {
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text(timKiemTheo + " phải là số nguyên")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+        }
     }
 
     @FXML

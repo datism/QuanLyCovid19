@@ -41,6 +41,16 @@ public class NhanKhauDao extends AbstractDao<NhanKhau> {
         else
             return nhanKhauList;
     }
+
+    public List<NhanKhau> getByCanCuoc(String cccd) {
+        String query = "Select * FROM NhanKhau WHERE CCCD = ?";
+        List<NhanKhau> nhanKhauList = super.query(query, new NhanKhauMapper(), cccd);
+        if (nhanKhauList == null || nhanKhauList.isEmpty())
+            return null;
+        else
+            return nhanKhauList;
+    }
+
     /**
      * Chỉnh sửa nhân khẩu
      * @param nhanKhau nhân khẩu

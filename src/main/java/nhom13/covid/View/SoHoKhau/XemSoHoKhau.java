@@ -5,13 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Duration;
 import nhom13.covid.Dao.SoHoKhauDao;
 import nhom13.covid.Model.SoHoKhau;
+import org.controlsfx.control.Notifications;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,19 +74,35 @@ public class XemSoHoKhau implements Initializable {
         if (timKiemTheo == null) {
             return;
         }
+
         Stream<SoHoKhau> soHoKhauStream = soHoKhauDao.getAll().stream();
 
-//        Truy vấn db
-        switch (timKiemTheo) {
-            case "Tên chủ hộ" -> soHoKhauStream.filter(soHoKhau -> timKiem.equals(soHoKhau.getChuHo()));
-            case "Số nhà" -> soHoKhauStream.filter(soHoKhau -> timKiem.equals(soHoKhau.getSoNha()));
-            case "Đường" -> soHoKhauStream.filter(soHoKhau -> timKiem.equals(soHoKhau.getDuongID()));
-            case "Mã hộ khẩu" -> soHoKhauStream.filter(soHoKhau -> timKiem.equals(soHoKhau.getMaHoKhau()));
+        if (timKiem.equals("")) {
+            soHoKhauList.setAll(soHoKhauStream.toList());
+            soHoKhauTableView.setItems(soHoKhauList);
+            return;
         }
 
-//        Hiển thị kết quả
-        soHoKhauList.setAll(soHoKhauStream.toList());
-        soHoKhauTableView.setItems(soHoKhauList);
+        //        Truy vấn db
+        switch (timKiemTheo) {
+            case "Tên chủ hộ" -> soHoKhauStream = soHoKhauStream.filter(soHoKhau -> Integer.valueOf(timKiem).equals(soHoKhau.getChuHo()));
+            case "Số nhà" -> soHoKhauStream = soHoKhauStream.filter(soHoKhau -> timKiem.equals(soHoKhau.getSoNha()));
+            case "Đường" -> soHoKhauStream = soHoKhauStream.filter(soHoKhau -> Integer.valueOf(timKiem).equals(soHoKhau.getDuongID()));
+            case "Mã hộ khẩu" -> soHoKhauStream = soHoKhauStream.filter(soHoKhau -> Integer.valueOf(timKiem).equals(soHoKhau.getMaHoKhau()));
+        }
+
+        try {
+            //        Hiển thị kết quả
+            soHoKhauList.setAll(soHoKhauStream.toList());
+            soHoKhauTableView.setItems(soHoKhauList);
+        } catch (NumberFormatException e) {
+            Notifications.create()
+                    .title("Lỗi input")
+                    .text(timKiemTheo + " phải là số nguyên")
+                    .position(Pos.TOP_RIGHT)
+                    .hideAfter(Duration.seconds(5))
+                    .showError();
+        }
     }
 
 }

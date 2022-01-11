@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,8 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import nhom13.covid.Dao.TamTruDao;
 import nhom13.covid.Model.TamTru;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
@@ -53,19 +56,28 @@ public class XemTamTru implements Initializable {
 	public void timKiemButtonClicked(ActionEvent event) {
 		String timKiem = timKiemTextField.getText();
 		String timKiemTheo = timKiemChoiceBox.getValue();
-		if (timKiemTheo == null)
+		if (timKiemTheo == null || timKiem.equals(""))
 			return;
 		
 		Stream<TamTru> stream =tamTruDao.getAll().stream();
 		
 		switch (timKiemTheo) {
-		case "Mã Phiếu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaTamTru()));
-        case "Mã Nhân Khẩu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaNhanKhau()));
-        case "Mã Hộ Khẩu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaHoKhau()));
+			case "Mã Phiếu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaTamTru()));
+			case "Mã Nhân Khẩu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaNhanKhau()));
+			case "Mã Hộ Khẩu" -> stream = stream.filter(tamTru -> Integer.valueOf(timKiem).equals(tamTru.getMaHoKhau()));
 		}
-		
-		tamTruList.setAll(stream.toList());
-		tamTruTable.setItems(tamTruList);
+
+		try {
+			tamTruList.setAll(stream.toList());
+			tamTruTable.setItems(tamTruList);
+		} catch (NumberFormatException e) {
+			Notifications.create()
+					.title("Lỗi input")
+					.text(timKiemTheo + " phải là số nguyên")
+					.position(Pos.TOP_RIGHT)
+					.hideAfter(Duration.seconds(5))
+					.showError();
+		}
 	}
 	
 	@FXML
